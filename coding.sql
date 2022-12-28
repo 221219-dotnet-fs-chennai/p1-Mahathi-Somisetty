@@ -2,18 +2,13 @@ create database coding
 
 use coding
 
-drop table Department
-
 CREATE TABLE Department(
 id int IDENTITY(1,1) PRIMARY KEY,
 [Name] varchar(20),
 [Location] VARCHAR(20)
 );
 
-
-
-
-CREATE TABLE Employe(
+CREATE TABLE Employee(
     id int IDENTITY(1,1) PRIMARY KEY,
     firstName varchar(20) not null,
     lastName VARCHAR(20),
@@ -41,18 +36,18 @@ CREATE TABLE empDetails(
 
 SELECT * from Department
 
-select * from Employe
+select * from Employee
 
 select*from empDetails
 
 INSERT INTO empDetails(employeeId,salary,address1,address2,city,state,country)
 values
-(1,2000,'101,chittoor',null,'chittoor','Andhra Pradesh','India'),
-(2,3000,'10-11,putur',null,'putur','Andhra Pradesh','India'),
-(3,2500,'11-10,tirupati','11-10,checkpost,tirupati','tirpupati','Andhra pradesh','inida')
+(1,25000,'10,chittoor',null,'nellore','Andhra Pradesh','India'),
+(2,30000,'2-4,putur',null,'nellore','Andhra Pradesh','India'),
+(3,25000,'5-4,tirupati','2-4,nellore','nellore','Andhra pradesh','India')
 
 insert into  Department(name,location)
-values ('IT','chittoor'),('HR','puthur'),('Managemet','tirupathi')
+values ('Support','nellore')('hr',nellore),('Technical','tirupathi')
 
 insert into Employe(firstName,lastName,SSN,deptId)
 VALUES ('Ram','setty',65432,6)
@@ -62,26 +57,26 @@ UPDATE Department
 SET name = 'marketing'
 where id = 4
 
--- Inserting teena into employe 
-insert into Employe(firstName,lastName,SSN,deptId)
+-- Inserting teena into employee tble 
+insert into Employee(firstName,lastName,SSN,deptId)
 values('teena','smith',654323,2)
 
--- marketing
+-- inserting marketing
 
 insert into Department(name, location)
 VALUES('Marketing','Chennai')
 
---employe inot marketing
+
 
 insert into empDetails(employeeId,salary ,address1 , address2,city,state,country)
-values(4,3750,'202Cittoor',null,'chittoor','andhrapradesh','India')
+values(4,3650,'202 nellore',null,'nellorer','andhrapradesh','India')
 
--- total salary of maketing
+--salary  marketing
 
 select sum(salary) as totalSalary from Employe
 JOIN empDetails on Employe.id = empDetails.employeeId where name like 'marketing'
 
-----list of employe in marketing
+----employee list in  marketing
 
 
 SELECT firstName,lastName, name from Employe
