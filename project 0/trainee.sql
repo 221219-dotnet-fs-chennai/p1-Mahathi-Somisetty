@@ -1,6 +1,6 @@
 create database trainee
 create table TraineeDetails(
-TraineeId int Not null,
+TraineeId int IDENTITY(1,1),
 FullName varchar(50),
 EmailId varchar(50) not null,
 Gender varchar(10),
