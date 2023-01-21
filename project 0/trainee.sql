@@ -7,7 +7,7 @@ Gender varchar(10),
 Age int not null, 
 PhoneNumber varchar(10), PRIMARY KEY([TraineeId])
 );
-
+alter table TraineeDetails add [Password] varchar(15);
 
 CREATE TABLE Skills(
     [TraineeId] int IDENTITY(1,1),
