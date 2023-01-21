@@ -13,12 +13,12 @@ namespace Data
         {
 
         }
-         public int TraineeId{ get; set; }
-         public string Password { get; set; }   
+        public int TraineeId { get; set; }
+        public string Password { get; set; }
         public int SkillId { get; set; }
         public int EducationalId { get; set; }
         public int CompanyId { get; set; }
-           
+
         public string? FullName
         {
             get; set;

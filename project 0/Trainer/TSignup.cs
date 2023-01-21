@@ -10,28 +10,32 @@ namespace Trainer
     
     internal class TSignup : IMenu
     {
-        Details details = new Details();
-        static string constr = @"Server=LAPTOP-S7D0E4KP;Database=trainee;Trusted_Connection=True;";
-        Sqlrepo repo = new Sqlrepo(constr);
+        internal static Details details = new Details();
+
+        static string constr = $@"server=LAPTOP-S7D0E4KP;Database=trainee;Trusted_Connection=True;";
+        Sqlrepo repo = new Sqlrepo();
         public void Display()
         {
-            Console.WriteLine("Welcome to signup");
+            Console.WriteLine("---Welcome to signup---");
             Console.WriteLine("[1] FullName:" + details.FullName);
             Console.WriteLine("[2] EmailId:" + details.EmailId);
             Console.WriteLine("[3] Gender:" + details.Gender);
             Console.WriteLine("[4] Age:" + details.Age);
             Console.WriteLine("[5] PhoneNumber:" + details.Phonenumber );
+            Console.WriteLine("***********Educational Details***********");
             Console.WriteLine("[6] Highest Qualification:" + details.HighestQualification);
             Console.WriteLine("[7] Passing year:" + details.PassingYear);
             Console.WriteLine("[8] Percentage:" + details.Percentage);
             Console.WriteLine("[9] Stream:" + details.Stream);
+            Console.WriteLine("***********Company Details***********");
             Console.WriteLine("[10] CompanyName:" + details.CompanyName);
             Console.WriteLine("[11] ProjectName:" + details.ProjectName);
             Console.WriteLine("[12] Position:" + details.Position);
             Console.WriteLine("[13] Experience:" + details.Experience);
+            Console.WriteLine("***********Skill Detaisl***********");
             Console.WriteLine("[14] SkillName:" + details.SkillName);
             Console.WriteLine("[15] SkillType:" + details.SkillType);
-            Console.WriteLine("[16] Expertise in Technology:" + details.Expertise);
+            Console.WriteLine("[16] Expertise :" + details.Expertise);
             Console.WriteLine("[0] Save");
             Console.WriteLine("[01] EXIT");
         }
@@ -43,8 +47,9 @@ namespace Trainer
             switch (userInput)
             {
                 case "0":
-                    Console.WriteLine("saved successfully!");
+                    
                     repo.Add(details);
+                    Console.WriteLine("saved successfully!");
                     return "Menu";
                 case "1":
                     Console.WriteLine("Enter FullName:  ");
@@ -111,9 +116,11 @@ namespace Trainer
                     Console.WriteLine("Expertise :  ");
                     details.Expertise = Console.ReadLine();
                     return "TSignup";
+                
                 case "01":
                     Console.WriteLine("EXIT");
                     return "Menu";
+                
                 default:
                     Console.WriteLine("Wrong Choice");
                     Console.WriteLine("Click enter to continue");

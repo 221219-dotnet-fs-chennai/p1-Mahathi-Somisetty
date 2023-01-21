@@ -3,7 +3,7 @@ namespace Data
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main(String[] args)
         {
             bool repeat = true;
             IMenu menu = new Menu();
