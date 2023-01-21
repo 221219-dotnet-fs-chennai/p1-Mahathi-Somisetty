@@ -8,6 +8,7 @@ namespace Trainer
 {
     internal class TLogin : IMenu
         {
+        static string connection = $@"Server=LAPTOP-S7D0E4KP;Database=trainee;Trusted_Connection=True;";
             public void Display()
             {
                 Console.WriteLine("Welcome to Trainer Login Page");
@@ -22,7 +23,7 @@ namespace Trainer
                 switch (userInput)
                 {
                     case "1":
-                        Console.WriteLine("[1] Proceed for Login");
+                        //Console.WriteLine("[1] Proceed for Login");
                         TLogin log = new TLogin();
                         log.login();
                         Console.ReadLine();
@@ -43,6 +44,7 @@ namespace Trainer
                 Console.WriteLine("Enter your EmailId:");
                 string? username=Console.ReadLine();
                 Console.WriteLine("Enter your Password:");
+                Console.WriteLine("Password should be atleast 4");
                 string? password=Console.ReadLine();
             Console.WriteLine("Successfully Logged in");
             }

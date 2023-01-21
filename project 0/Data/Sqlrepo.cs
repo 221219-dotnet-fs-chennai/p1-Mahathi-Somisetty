@@ -73,113 +73,13 @@ namespace Trainer
 
             return details;
         }
-        /*public void DeleteTrainer(string EMail)
-        {
-            throw new NotImplementedException();
-        }
-*/
-       /* public Details GetAllTrainer(string email)
-        {
-            Details detail = new Details();
-            SqlConnection con = new SqlConnection(connectionstring);
-            con.Open();
-            List<Details> details = new List<Details>();
-
-            try
-            {
-                string query4 = $@"Select  TraineeDetails.FullName, TraineeDetails.EmailId, TraineeDetails.Gender,TraineeDetails.Age, TraineeDetails.PhoneNumber,
-                         Educational_Details.EducationId, Educational_Details.HQualification, Educational_Details.YearOfPassing, EducationalDetails.Percentage, Educational_Details.Stream, 
-                          Skills.SkillId, Skills.SkillType, Skills.Expertise
-                           Companydeatails.CompanyId, Companydeatails.CompanyName, Companydeatails.ProjectName, Companydeatails.Position, Companydeatails.Experience From TrainerDetails
-                            join Educational_Details on TrainerDetails.TrainerId = Educational_Details.EducationId
-                                   join Skills on Educational_Details.EducationId = Skills.SkillID
-                                   join company on Skills.SkillID = CompanyId where TraineeDetails.Email ='{ email}';";
-
-                SqlCommand command = new SqlCommand(query4, con);
-
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    details.Add(new Details()
-                    {
-                        //TraineeId = reader.GetInt32(0),
-                        FullName = reader.GetString(1),
-                        EmailId = reader.GetString(2),
-                        Gender = reader.GetString(3),
-                        Age = reader.GetString(4),
-                        Phonenumber = reader.GetString(5),
-                        EducationalId = reader.GetInt32(6),
-                        HighestQualification = reader.GetString(7),
-                        PassingYear = reader.GetString(8),
-                        Percentage = reader.GetString(9),
-                        Stream = reader.GetString(10),
-                        SkillId = reader.GetInt32(11),
-                        SkillName = reader.GetString(12),
-                        SkillType = reader.GetString(13),
-                        Expertise = reader.GetString(14),
-                        CompanyId = reader.GetInt32(15),
-                        CompanyName = reader.GetString(16),
-                        ProjectName = reader.GetString(17),
-                        Experience = reader.GetString(18),
-                    });
-                }
-                reader.Close();
-            }
-            catch (SqlException ex)
-            {
-                System.Console.WriteLine(ex.Message);
-                throw;
-            }
-            return detail;
-        }*/
-        /*public List<Details> GetAllTrainersDisconnected()
-        {
-            List<Details> details = new List<Details>();
-
-            SqlConnection con = new SqlConnection(connectionstring);
-
-            string query5 = @"select  TraineeDetails.FullName, TraineeDetails.EmailId, TraineeDetails.Gender, TraineeDetails.Age, TraineeDetails.PhoneNumber,
-                            Educational_Details.EducationId, Educational_Details.HQualification, Educational_Details.YearOfPassing, Educational_Details.Percentage, Educational_Details.Stream,
-                            Skills.SkillId, Skills.SkillName, Skill.Type, Skills.Expertise
-                            Companydeatails.CompanyId, Companydeatails.CompanyName, Companydeatails.ProjectName, Companydeatails.Position, Companydeatails.Experience From TrainerDetails
-                             join EducationalDetails.EducationId = Skills.SkillID
-                             joinCompany on Skills.SkillID = CompanyId;";
-            SqlDataAdapter adapter = new SqlDataAdapter(query5, con);
-
-            DataSet ds = new DataSet();
-            adapter.Fill(ds);
-
-            DataTable dtTrainer = ds.Tables[0];
-
-            foreach (DataRow row in dtTrainer.Rows)
-            {
-                details.Add(new Details()
-                {
-                    FullName = (string)row["Name"],
-                    EmailId = (string)row["EmailID"],
-                    Gender = (string)row["Gender"],
-                    Age = (string)row["Age"],
-                    Phonenumber = (string)row["Phonenumber"],
-                    HighestQualification = (string)row["HighighestQualification"],
-                    PassingYear = (string)row["PassingYear"],
-                    Percentage = (string)row["Percentage"],
-                    Stream = (string)row["Stream"],
-                    SkillName = (string)row["SkillName"],
-                    SkillType = (string)row["SkillType"],
-                    Expertise = (string)row["Expertise"],
-                    CompanyName = (string)row["CompanyName"],
-                    ProjectName = (string)row["ProjectName"],
-                    Experience = (string)row["Experience"],
-                });
-            }
-            return details;
-        }*/
+        
         public bool login(string Email)
         {
-            string query6 = $"select Email from TraineeDetails where Email='{Email}';";
+            string query1 = $"select EmailId from TraineeDetails where EmailId='{Email}';";
             using SqlConnection con = new SqlConnection(connectionstring);
             con.Open();
-            SqlCommand command1 = new SqlCommand(query6, con);
+            SqlCommand command1 = new SqlCommand(query1, con);
 
             SqlDataReader reader = command1.ExecuteReader();
 
@@ -187,9 +87,9 @@ namespace Trainer
             {
                 reader.Close();
                 Console.Write("Enter your password: ");
-                string? password = System.Console.ReadLine();
-                string query7 = $"select Email from Trainer where Password='{password}';";
-                SqlCommand command2 = new SqlCommand(query7, con);
+                string? password = Console.ReadLine();
+                string query = $"select Email from Trainer where Password='{password}';";
+                SqlCommand command2 = new SqlCommand(query, con);
                 using SqlDataReader read1 = command2.ExecuteReader();
                 if (read1.Read())
                 {

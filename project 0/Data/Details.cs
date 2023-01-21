@@ -84,6 +84,7 @@ namespace Data
         {
             get; set;
         }
+        
         public string TrainerDetails()
         {
             return $@"{FullName},{EmailId}, {FullName}, {Gender}, {Age}, {Phonenumber}, {HighestQualification}, {PassingYear}, {Percentage}, {Stream}, {CompanyName}, {ProjectName}, {Position}, {Experience}, {SkillName}, {SkillType}, {Expertise} ";
