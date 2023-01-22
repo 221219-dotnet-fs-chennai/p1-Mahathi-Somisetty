@@ -15,7 +15,7 @@ namespace Data
         //List<Details> GetTrainerDisconnected();
         Details Get(string email);
 
-        Details Update(Details trainerdata);
+        void Tupdate(string TableName, string ColoumnName, string Newvalue, string TraineeId );
 
         bool Login(string email);
         //bool Login(string? emailId);

@@ -24,11 +24,13 @@ namespace Trainer
             Console.WriteLine("******Welcome to Profile Page******");
             Console.WriteLine("[L] Logout:");
             Console.WriteLine("[1] View All details: ");
+            Console.WriteLine("[2] Update Your Details:");
+            Console.WriteLine("[3] Delete Your Details:");
             Console.WriteLine("[0] Exit");
         }
         public string Userchoice()
         {
-            string? Input = Console.ReadLine();
+            string Input = Console.ReadLine();
             switch (Input)
             {
                 case "L":
@@ -38,6 +40,13 @@ namespace Trainer
                     Console.WriteLine("Your Profile:");
                     Viewdetails();
                     return "Profile";
+                case "2":
+                    Console.WriteLine("Update Trainer Details:");
+                    return "Tupdate";
+                case "3":
+                    Console.WriteLine("want delete your Details?");
+                    Console.WriteLine("Click Enter to Continue:");
+                    return "TDelete";
                 case "0":
                     Console.WriteLine("Proceed to exit?:(Y/N)");
                     return "Menu";

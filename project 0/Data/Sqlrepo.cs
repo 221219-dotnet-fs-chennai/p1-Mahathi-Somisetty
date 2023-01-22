@@ -156,6 +156,49 @@ namespace Trainer
             return details; 
             //throw new NotImplementedException();
         }
+
+        public void Tupdate(string TableName, string ColumnName, string Newvalue , string email)
+        {
+            using SqlConnection connect = new SqlConnection(connection);
+            connect.Open();
+            string query = $@" select TraineeId from TraineeDetails where EmailId = '{email}'; ";
+            SqlCommand command = new SqlCommand(query, connect);
+            int TrainId = Convert.ToInt32(command.ExecuteScalar());
+            Console.WriteLine(TrainId);
+            string query1 = $@" update {TableName} set  {ColumnName} = '{Newvalue}' where  TraineeId='{TrainId}'";
+            SqlCommand command1 = new SqlCommand(query1, connect);
+            command1.ExecuteNonQuery();
+
+            Console.WriteLine("Details Updated Successfully");
+
+            //return "Profile";
+            
+
+           /* string query = $@" select TraineeId  from TraineeDetails where EmailId= '{email}';";
+            SqlCommand command = new SqlCommand(query, connect);
+            int TrainId = Convert.ToInt32(command.ExecuteScalar());
+            string query0 = $@"update  TraineeDetails set PhoneNumber where TraineeId ='{TrainId}'; ";
+            SqlCommand command0 = new SqlCommand(query0, connect);
+            string query1 = $@"update TraineeDetails set Age where TraineeId = '{TrainId}';";
+            SqlCommand command1 = new SqlCommand(query1, connect);
+            string query2 = $@"update CompanyDetails set Company_name where TraineeId = '{TrainId}';";
+            SqlCommand command2 = new SqlCommand(query2, connect);
+            string query3 = $@"update CompanyDetails set ProjectName where TraineeId = '{TrainId}';";
+            SqlCommand command3 = new SqlCommand(query3, connect);
+            String query4 = $@"update CompanyDetails set Position where TraineeId = '{TrainId}';";
+            SqlCommand command4 = new SqlCommand(query4, connect);
+            String query5 = $@"update CompanyDetails set Experience where TraineeId = '{TrainId}';";
+            SqlCommand command5 = new SqlCommand(query5, connect);
+            command.ExecuteNonQuery();
+            command0.ExecuteNonQuery();*/
+            /*command1.ExecuteNonQuery();
+            command2.ExecuteNonQuery();
+            command3.ExecuteNonQuery();
+            command4.ExecuteNonQuery();
+            command5.ExecuteNonQuery();*/
+
+            
+        }
     }
 }
 

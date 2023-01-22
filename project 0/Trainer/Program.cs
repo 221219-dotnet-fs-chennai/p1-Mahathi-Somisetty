@@ -15,7 +15,6 @@ namespace Data
                 switch (ab)
                 {
                     case "Login":
-                        
                         menu = new TLogin();
                         break;
                     case "Signup":
@@ -26,6 +25,12 @@ namespace Data
                         break;
                     case "Profile":
                         menu = new Profile(info);
+                        break;
+                    case "Tupdate":
+                        menu = new Tupdate();
+                        break;
+                    case "Exit":
+                        repeat = false;
                         break;
                     default:
                         Console.WriteLine("Wrong choice!:");
