@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,12 @@ namespace Trainer
 {
     internal class Profile : IMenu
     {
-        
+        Details details=new Details();
+        public Profile(Details det)
+        {
+            details = det;
+        }
+
         public void Display()
         {
             Console.WriteLine("******Welcome to Profile Page******");

@@ -17,17 +17,24 @@ namespace Trainer
     public class Sqlrepo : IRepo
     {
         private readonly string? connectionstring = $@"server=LAPTOP-S7D0E4KP;Database=trainee;Trusted_Connection=True;";
-        /*public Sqlrepo(string connectionstring)
+        private string connection;
+
+        public Sqlrepo(string connection)
         {
-            this.connectionstring = connectionstring;
-        }*/
-       
+            this.connection = connection;
+        }
+
+        /*public Sqlrepo(string connectionstring)
+{
+   this.connectionstring = connectionstring;
+}*/
+
         public Details Add(Details details)
         {
             using SqlConnection connection = new SqlConnection(connectionstring);
             connection.Open();
 
-            string query = @"insert into TraineeDetails(FullName, EmailId, Gender, Age, PhoneNumber) values ( @FullName, @EmailId, @Gender, @Age, @PhoneNumber)";
+            string query = @"insert into TraineeDetails(FullName, EmailId, Gender, Age, PhoneNumber, Password) values ( @FullName, @EmailId, @Gender, @Age, @PhoneNumber, @Password)";
             
             SqlCommand command = new SqlCommand(query, connection);
             //command.Parameters.AddWithValue("@TraineeId", TraineeId);
@@ -36,6 +43,7 @@ namespace Trainer
             command.Parameters.AddWithValue("@Gender", details.Gender);
             command.Parameters.AddWithValue("@Age", details.Age);
             command.Parameters.AddWithValue("@PhoneNumber", details.Phonenumber);
+            command.Parameters.AddWithValue("@Password", details.Password);
 
             command.ExecuteNonQuery();
 
@@ -73,11 +81,16 @@ namespace Trainer
 
             return details;
         }
-        
-        public bool login(string Email)
+
+       /* public bool Login(string email)
         {
-            string query1 = $"select EmailId from TraineeDetails where EmailId='{Email}';";
-            using SqlConnection con = new SqlConnection(connectionstring);
+            throw new NotImplementedException();
+        }
+*/
+        public bool Login(string email)
+        {
+            string query1 = $@"select EmailId from TraineeDetails where EmailId='{email}';";
+            using SqlConnection con = new SqlConnection(connection);
             con.Open();
             SqlCommand command1 = new SqlCommand(query1, con);
 
@@ -88,28 +101,34 @@ namespace Trainer
                 reader.Close();
                 Console.Write("Enter your password: ");
                 string? password = Console.ReadLine();
-                string query = $"select Email from Trainer where Password='{password}';";
+                string query = $@"select Password from TraineeDetails where Password='{password}';";
                 SqlCommand command2 = new SqlCommand(query, con);
                 using SqlDataReader read1 = command2.ExecuteReader();
                 if (read1.Read())
                 {
-                    Console.WriteLine("Login Successfully");
-                    Console.ReadLine();
+                    Console.WriteLine("successfull login");
                     return true;
                 }
+
                 else
                 {
-                    Console.WriteLine("Wrong Password");
+                    Console.WriteLine("wrong PAssword");
                     read1.Close();
                     return false;
+
                 }
-            }
-            else
-            {
-                Console.WriteLine("Data Not found");
-                Console.ReadLine();
-                return false;
-            }
+
+            }     
+                
+             else
+              {
+                    Console.WriteLine("no email registered with in this");
+                    reader.Close();
+                    return false;
+              }
+               
+            
+            
         }
     }
 }

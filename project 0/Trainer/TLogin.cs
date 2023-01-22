@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data;
 
 namespace Trainer
 {
-    internal class TLogin : IMenu
-        {
-        static string connection = $@"Server=LAPTOP-S7D0E4KP;Database=trainee;Trusted_Connection=True;";
-            public void Display()
+    public  class TLogin : IMenu
+    {    
+        static string con = File.ReadAllText("../../../Connection.txt");
+        IRepo repo = new Sqlrepo(con);
+        public void Display()
             {
                 Console.WriteLine("Welcome to Trainer Login Page");
                 Console.WriteLine("[1] Login");
@@ -23,30 +25,30 @@ namespace Trainer
                 switch (userInput)
                 {
                     case "1":
-                        //Console.WriteLine("[1] Proceed for Login");
-                        TLogin log = new TLogin();
-                        log.login();
-                        Console.ReadLine();
+                        Console.WriteLine("Enter your emailId: ");
+                        string? EmailId= Console.ReadLine();
+                        bool choice = repo.Login(EmailId);
+                        if (choice)
+                        {
+                        TSignup tsignup= new TSignup();
+                        return "Profile";
+                        }
+                        else
+                        {
                         return "Login";
+
+                        }
                     case "2":
-                        Console.WriteLine("[2] Proceed for Exit");
-                        Console.ReadLine();
-                        return "Menu";
-                default:
+
+                        return "Profile";
+                    
+                    default:
                     Console.WriteLine("Wrong Choice!");
                     Console.WriteLine("Click Enter to Continue");
                     return "TLogin";
                 }
                 
             }
-            public void login()
-            {
-                Console.WriteLine("Enter your EmailId:");
-                string? username=Console.ReadLine();
-                Console.WriteLine("Enter your Password:");
-                Console.WriteLine("Password should be atleast 4");
-                string? password=Console.ReadLine();
-            Console.WriteLine("Successfully Logged in");
-            }
-        }
+        
+    }
 }

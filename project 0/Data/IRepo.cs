@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    internal interface IRepo
+    public interface IRepo
     {
         Details Add(Details trainerdata);
 
@@ -14,6 +14,7 @@ namespace Data
 
         //List<Details> GetTrainerDisconnected();
 
-        //bool Login(string email);
+        bool Login(string email);
+        //bool Login(string? emailId);
     }
 }

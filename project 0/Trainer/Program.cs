@@ -1,7 +1,7 @@
 ﻿using Trainer;
 namespace Data
 {
-    public class Program
+    class Program : TSignup
     {
         public static void Main(String[] args)
         {
@@ -21,6 +21,9 @@ namespace Data
                         break;
                     case "Menu":
                         menu = new Menu();
+                        break;
+                    case "Profile":
+                        menu = new Profile(info);
                         break;
                     default:
                         Console.WriteLine("Wrong choice!:");

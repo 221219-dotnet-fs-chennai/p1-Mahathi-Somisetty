@@ -13,11 +13,26 @@ namespace Data
         {
 
         }
-        public int TraineeId { get; set; }
-        public string Password { get; set; }
-        public int SkillId { get; set; }
-        public int EducationalId { get; set; }
-        public int CompanyId { get; set; }
+        public int TraineeId 
+        {
+            get; set;
+        }
+        public string Password 
+        { 
+            get; set;
+        }
+        public int SkillId 
+        { 
+            get; set;
+        }
+        public int EducationalId 
+        { 
+            get; set;
+        }
+        public int CompanyId 
+        { 
+            get; set;
+        }
 
         public string? FullName
         {
@@ -85,6 +100,7 @@ namespace Data
             get; set;
         }
         
+
         public string TrainerDetails()
         {
             return $@"{FullName},{EmailId}, {FullName}, {Gender}, {Age}, {Phonenumber}, {HighestQualification}, {PassingYear}, {Percentage}, {Stream}, {CompanyName}, {ProjectName}, {Position}, {Experience}, {SkillName}, {SkillType}, {Expertise} ";

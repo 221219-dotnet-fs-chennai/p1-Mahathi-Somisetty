@@ -1,0 +1,3 @@
+﻿Server=LAPTOP-S7D0E4KP;Database=trainee;Trusted_Connection=True;
+
+

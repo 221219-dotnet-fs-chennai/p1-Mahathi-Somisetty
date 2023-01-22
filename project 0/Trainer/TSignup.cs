@@ -13,10 +13,10 @@ namespace Trainer
     internal class TSignup : IMenu
     {
         internal static Details info = new Details();
-        
 
-        static string constr = $@"server=LAPTOP-S7D0E4KP;Database=trainee;Trusted_Connection=True;";
-        Sqlrepo repo = new Sqlrepo();
+
+        static string constr = File.ReadAllText("../../../Connection.txt");
+        Sqlrepo repo = new Sqlrepo(constr);
         public void Display()
         {
             Console.WriteLine("---Welcome to signup---");
@@ -39,6 +39,7 @@ namespace Trainer
             Console.WriteLine("[14] SkillName:" + info.SkillName);
             Console.WriteLine("[15] SkillType:" + info.SkillType);
             Console.WriteLine("[16] Expertise :" + info.Expertise);
+            Console.WriteLine("[17] Password :" + info.Password);
             Console.WriteLine("[0] Save");
             Console.WriteLine("[01] EXIT");
         }
@@ -83,6 +84,7 @@ namespace Trainer
                     return "TSignup";
                 case "5":
                     Console.WriteLine("Enter PhoneNumber :  ");
+                    string regex2 = @"\";
                     info.Phonenumber = Convert.ToString(Console.ReadLine());
                     return "TSignup";
                 case "6":
@@ -130,6 +132,12 @@ namespace Trainer
                     Console.WriteLine("Expertise :  ");
                     info.Expertise = Console.ReadLine();
                     return "TSignup";
+                case "17":
+                    Console.WriteLine("Password:");
+                    Console.WriteLine("passWord Should Contain Minimum Four characters, at least one letter and one number:");
+                    string regex1 = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$";
+                    info.Password = Console.ReadLine();
+                    return "Tsignup";
                 
                 case "01":
                     Console.WriteLine("EXIT");
