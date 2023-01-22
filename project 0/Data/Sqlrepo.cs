@@ -122,13 +122,39 @@ namespace Trainer
                 
              else
               {
-                    Console.WriteLine("no email registered with in this");
+                    Console.WriteLine("No Email Registered With This");
                     reader.Close();
                     return false;
               }
                
             
             
+        }
+        public Details Get(string email)
+        {
+            Details details = new Details();
+            using SqlConnection connect = new SqlConnection(connection);
+            connect.Open();
+
+            string query = $@" select TraineeId from TraineeDetails where EmailId = '{email}'; ";
+            SqlCommand command = new SqlCommand(query, connect);
+            int TrainId = Convert.ToInt32(command.ExecuteScalar());
+            string query4 = $@" select * from TraineeDetails  where Traineeid = '{TrainId}'; ";
+            SqlCommand command0 = new SqlCommand(query4, connect);
+            string query5 = $@"select * from Skills where TraineeId = '{TrainId}';";
+            SqlCommand command1 = new SqlCommand(query5, connect);
+            string query6 = $@"select *from EducationalDetails where TraineeId = '{TrainId}';";
+            SqlCommand command2 = new SqlCommand(query6, connect);
+            string query7 = $@"select 8from CompanyDetails where TraineeId = '{TrainId}';";
+            SqlCommand command3 = new SqlCommand(query7, connect);
+            command.ExecuteNonQuery();
+            command1.ExecuteNonQuery();
+            command2.ExecuteNonQuery();
+            command3.ExecuteNonQuery();
+
+
+            return details; 
+            //throw new NotImplementedException();
         }
     }
 }

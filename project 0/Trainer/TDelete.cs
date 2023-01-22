@@ -1,40 +1,25 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Data;
 
 namespace Trainer
 {
-    
-    internal class TSignup : IMenu
+    internal class TDelete : TSignup, IMenu
     {
-        internal static Details info = new Details();
-
-
-        static string constr = File.ReadAllText("../../../Connection.txt");
-        Sqlrepo repo = new Sqlrepo(constr);
-
-        public TSignup()
-        {
-
-        }
-
-        public TSignup(Details details)
-        {
-            info = details;
-        }
+        static string con = File.ReadAllText("../../../Connection.txt");
+        IRepo repo = new Sqlrepo(con);
         public void Display()
         {
-            Console.WriteLine("---Welcome to signup---");
+            Console.WriteLine("*****Welcome, You can made updates in this page*****");
             Console.WriteLine("[1] FullName:" + info.FullName);
             Console.WriteLine("[2] EmailId:" + info.EmailId);
             Console.WriteLine("[3] Gender:" + info.Gender);
             Console.WriteLine("[4] Age:" + info.Age);
-            Console.WriteLine("[5] PhoneNumber:" + info.Phonenumber );
+            Console.WriteLine("[5] PhoneNumber:" + info.Phonenumber);
             Console.WriteLine("***********Educational Details***********");
             Console.WriteLine("[6] Highest Qualification:" + info.HighestQualification);
             Console.WriteLine("[7] Passing year:" + info.PassingYear);
@@ -49,31 +34,25 @@ namespace Trainer
             Console.WriteLine("[14] SkillName:" + info.SkillName);
             Console.WriteLine("[15] SkillType:" + info.SkillType);
             Console.WriteLine("[16] Expertise :" + info.Expertise);
-            Console.WriteLine("[17] Password :" + info.Password);
-            Console.WriteLine("[0] Save");
-            Console.WriteLine("[01] EXIT");
+            Console.WriteLine("[0] save: ");
+
         }
-        public string Userchoice()
+        public new string Userchoice()
         {
             Console.WriteLine("Trainer Details");
             Console.WriteLine("Enter your choice");
             string? userInput = Console.ReadLine();
             switch (userInput)
             {
-                case "0":
-                    
-                    repo.Add(info);
-                    Console.WriteLine("saved successfully!");
-                    return "Menu";
                 case "1":
                     Console.WriteLine("Enter FullName:  ");
                     info.FullName = Console.ReadLine();
-                    return "TSignup";
+                    return "Profile";
                 case "2":
                     Console.WriteLine("Enter EmailID :  ");
                     string regex = @"^[\w\d+_.-]+@[\w\d.-]+$";
-                    string? EmailId= Console.ReadLine();
-                    if (Regex.IsMatch(EmailId,regex))
+                    string EmailId = Console.ReadLine();
+                    if (Regex.IsMatch(EmailId, regex))
                     {
                         info.EmailId = EmailId;
                     }
@@ -82,92 +61,72 @@ namespace Trainer
                         Console.WriteLine("Check Your mail:");
                         Console.ReadLine();
                     }
-                    
-                    return "TSignup";
+
+                    return "Profile";
                 case "3":
                     Console.WriteLine("Enter Gender :  ");
                     info.Gender = Console.ReadLine();
-                    return "TSignup";
+                    return "Profile";
                 case "4":
                     Console.WriteLine("Enter Age :  ");
                     info.Age = Convert.ToString(Console.ReadLine());
-                    return "TSignup";
+                    return "Profile";
                 case "5":
                     Console.WriteLine("Enter PhoneNumber :  ");
                     info.Phonenumber = Convert.ToString(Console.ReadLine());
-                    return "TSignup";
+                    return "Profile";
                 case "6":
                     Console.WriteLine("Highest Qualification :  ");
                     info.HighestQualification = Console.ReadLine();
-                    return "TSignup";
+                    return "Profile";
                 case "7":
                     Console.WriteLine("Enter Passing year :  ");
                     info.PassingYear = Console.ReadLine();
-                    return "TSignup";
+                    return "Profile";
                 case "8":
                     Console.WriteLine("Percentage :  ");
                     info.Percentage = Console.ReadLine();
-                    return "TSignup";
+                    return "Profile";
                 case "9":
                     Console.WriteLine("Stream :  ");
                     info.Stream = Console.ReadLine();
-                    return "TSignup";
-                
+                    return "Profile";
+
                 case "10":
                     Console.WriteLine("Company Name:  ");
                     info.CompanyName = Console.ReadLine();
-                    return "TSignUp";
+                    return "Profile";
                 case "11":
                     Console.WriteLine(" Project name :  ");
                     info.ProjectName = Console.ReadLine();
-                    return "TSignup";
+                    return "Profile";
                 case "12":
                     Console.WriteLine("Position :  ");
                     info.Position = Console.ReadLine();
-                    return "TSignup";
+                    return "Profile";
                 case "13":
                     Console.WriteLine("Experience :  ");
                     info.Experience = Console.ReadLine();
-                    return "TSignup";
+                    return "Profile";
                 case "14":
                     Console.WriteLine("Enter SKillsName :  ");
                     info.SkillName = Console.ReadLine();
-                    return "TSignup";
+                    return "Profile";
                 case "15":
                     Console.WriteLine("SkillType :  ");
                     info.SkillType = Console.ReadLine();
-                    return "TSignup";
+                    return "Profile";
                 case "16":
                     Console.WriteLine("Expertise :  ");
                     info.Expertise = Console.ReadLine();
-                    return "TSignup";
-                case "17":
-                    Console.WriteLine("Password:");
-                    Console.WriteLine("passWord Should Contain Minimum Four characters, at least one letter and one number:");
-                    string regex1 = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$";
-                    string? Password = Console.ReadLine();
-                    if (Regex.IsMatch(Password, regex1))
-                    {
-                        info.Password = Password;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Follow instructions for the password");
-                        Console.ReadLine();
-                    }
-                    return "Tsignup";
-                
-                case "01":
-                    Console.WriteLine("EXIT");
+                    return "Profile";
+                case "0":
+                    Console.WriteLine("[0] Save");
                     return "Menu";
-                
                 default:
-                    Console.WriteLine("Wrong Choice");
-                    Console.WriteLine("Click enter to continue");
-                    Console.ReadLine();
-                    return "TSignup";
-
-
+                    Console.WriteLine("Wrong choice");
+                    Console.WriteLine("Click Enter to continue");
+                    return "Profile";
 
             }
         }

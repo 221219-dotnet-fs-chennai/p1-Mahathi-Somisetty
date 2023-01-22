@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,8 @@ namespace Trainer
 {
     internal class Tupdate : TSignup, IMenu
     {
+        static string con = File.ReadAllText("../../../Connection.txt");
+        IRepo repo = new Sqlrepo(con);
         public void display()
         {
             Console.WriteLine("*****Welcome, You can made updates in this page*****");

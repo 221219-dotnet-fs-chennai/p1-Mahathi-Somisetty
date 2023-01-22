@@ -30,7 +30,8 @@ namespace Trainer
                         bool choice = repo.Login(EmailId);
                         if (choice)
                         {
-                        TSignup tsignup= new TSignup();
+                        TSignup tsignup= new TSignup(repo.Get(EmailId));
+
                         return "Profile";
                         }
                         else

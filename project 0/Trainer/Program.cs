@@ -9,11 +9,13 @@ namespace Data
             IMenu menu = new Menu();
             while(repeat)
             {
+                Details details = new Details();
                 menu.Display();
                 string ab = menu.Userchoice();
                 switch (ab)
                 {
                     case "Login":
+                        
                         menu = new TLogin();
                         break;
                     case "Signup":
