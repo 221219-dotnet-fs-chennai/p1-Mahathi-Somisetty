@@ -47,6 +47,7 @@ namespace Trainer
                 case "1":
                     Console.WriteLine("Enter FullName:  ");
                     info.FullName = Console.ReadLine();
+                    repo.TDelete("TraineeDetails", "FullName" ,info.EmailId);
                     return "Profile";
                 case "2":
                     Console.WriteLine("Enter EmailID :  ");
@@ -66,59 +67,73 @@ namespace Trainer
                 case "3":
                     Console.WriteLine("Enter Gender :  ");
                     info.Gender = Console.ReadLine();
+                    repo.TDelete("TraineeDetails", "Gender" ,info.EmailId);
                     return "Profile";
                 case "4":
                     Console.WriteLine("Enter Age :  ");
                     info.Age = Convert.ToString(Console.ReadLine());
+                    repo.TDelete("TraineeDetails","Age", info.EmailId);
                     return "Profile";
                 case "5":
                     Console.WriteLine("Enter PhoneNumber :  ");
                     info.Phonenumber = Convert.ToString(Console.ReadLine());
+                    repo.TDelete ("TraineeDetails","PhoneNumber", info.EmailId);
                     return "Profile";
                 case "6":
                     Console.WriteLine("Highest Qualification :  ");
                     info.HighestQualification = Console.ReadLine();
+                    repo.TDelete("EducationalDetails", "HQualification", info.EmailId);
                     return "Profile";
                 case "7":
                     Console.WriteLine("Enter Passing year :  ");
                     info.PassingYear = Console.ReadLine();
+                    repo.TDelete("EducationalDetails", "PassingYear", info.EmailId);
                     return "Profile";
                 case "8":
                     Console.WriteLine("Percentage :  ");
                     info.Percentage = Console.ReadLine();
+                    repo.TDelete("EducationalDetails", "Percentage", info.EmailId);
                     return "Profile";
                 case "9":
                     Console.WriteLine("Stream :  ");
                     info.Stream = Console.ReadLine();
+                    repo.TDelete("EducationalDetails", "Stream",info.EmailId);
                     return "Profile";
 
                 case "10":
                     Console.WriteLine("Company Name:  ");
                     info.CompanyName = Console.ReadLine();
+                    repo.TDelete("CompanyDetails", "CompanyName", info.EmailId);
                     return "Profile";
                 case "11":
                     Console.WriteLine(" Project name :  ");
                     info.ProjectName = Console.ReadLine();
+                    repo.TDelete("CompanyDetails", "ProjectName", info.EmailId);
                     return "Profile";
                 case "12":
                     Console.WriteLine("Position :  ");
                     info.Position = Console.ReadLine();
+                    repo.TDelete("CompanyDetails", "Position", info.EmailId);
                     return "Profile";
                 case "13":
                     Console.WriteLine("Experience :  ");
                     info.Experience = Console.ReadLine();
+                    repo.TDelete("CompanyDetails", "Experience", info.EmailId);
                     return "Profile";
                 case "14":
-                    Console.WriteLine("Enter SKillsName :  ");
+                    Console.WriteLine("Enter SKillName :  ");
                     info.SkillName = Console.ReadLine();
+                    repo.TDelete("Skills", "SkillName", info.EmailId);
                     return "Profile";
                 case "15":
                     Console.WriteLine("SkillType :  ");
                     info.SkillType = Console.ReadLine();
+                    repo.TDelete("Skills", "SkillType", info.EmailId);
                     return "Profile";
                 case "16":
                     Console.WriteLine("Expertise :  ");
                     info.Expertise = Console.ReadLine();
+                    repo.TDelete("Skills", "Expertise", info.EmailId);
                     return "Profile";
                 case "0":
                     Console.WriteLine("[0] Save");

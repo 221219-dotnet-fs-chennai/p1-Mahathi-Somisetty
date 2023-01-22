@@ -44,8 +44,7 @@ namespace Trainer
                     Console.WriteLine("Update Trainer Details:");
                     return "Tupdate";
                 case "3":
-                    Console.WriteLine("want delete your Details?");
-                    Console.WriteLine("Click Enter to Continue:");
+                    Console.WriteLine("Delete your Details?");
                     return "TDelete";
                 case "0":
                     Console.WriteLine("Proceed to exit?:(Y/N)");
