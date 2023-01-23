@@ -24,18 +24,22 @@ namespace Data
                         menu = new TLogin();
                         break;
                     case "Signup":
+                        Log.Logger.Information("Signup Page");
                         menu = new TSignup();
                         break;
                     case "Menu":
                         menu = new Menu();
                         break;
                     case "Profile":
+                        Log.Logger.Information("Profile Page");
                         menu = new Profile(info);
                         break;
                     case "Tupdate":
+                        Log.Logger.Information("Trainer Update Page");
                         menu = new Tupdate();
                         break;
                     case "TDelete":
+                        Log.Logger.Information("Trainer Delete Page");
                         menu = new TDelete();
                         break;
                   
