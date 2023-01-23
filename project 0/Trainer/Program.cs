@@ -1,10 +1,15 @@
-﻿using Trainer;
+﻿using System.Runtime;
+using Serilog;
+using Trainer;
 namespace Data
 {
     class Program : TSignup
     {
+        
         public static void Main(String[] args)
         {
+            Log.Logger = new LoggerConfiguration().WriteTo.File(@"..\..\..\logs.txt", rollingInterval: RollingInterval.Day, rollOnFileSizeLimit: true).CreateLogger();
+            Log.Logger.Information("Program start");
             bool repeat = true;
             IMenu menu = new Menu();
             while(repeat)
@@ -15,6 +20,7 @@ namespace Data
                 switch (ab)
                 {
                     case "Login":
+                        Log.Logger.Information("Login Page");
                         menu = new TLogin();
                         break;
                     case "Signup":
@@ -32,6 +38,7 @@ namespace Data
                     case "TDelete":
                         menu = new TDelete();
                         break;
+                  
                     case "Exit":
                         repeat = false;
                         break;

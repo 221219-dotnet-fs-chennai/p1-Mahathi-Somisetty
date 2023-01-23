@@ -69,19 +69,19 @@ namespace Trainer
                     return "Profile";
                 case "3":
                     Console.WriteLine("Enter Gender :  ");
-                    info.FullName = Console.ReadLine();
+                    info.Gender = Console.ReadLine();
                     repo.Tupdate("TraineeDetails", "Gender", info.Gender, info.EmailId);
                     info.Gender = Console.ReadLine();
                     return "Profile";
                 case "4":
                     Console.WriteLine("Enter Age :  ");
-                    info.FullName = Console.ReadLine();
+                    info.Age = Console.ReadLine();
                     repo.Tupdate("TraineeDetails", "Age", info.Age, info.EmailId);
                     info.Age = Convert.ToString(Console.ReadLine());
                     return "Profile";
                 case "5":
                     Console.WriteLine("Enter PhoneNumber :  ");
-                    info.FullName = Console.ReadLine();
+                    info.Phonenumber = Console.ReadLine();
                     repo.Tupdate("TraineeDetails", "PhoneNumber", info.Phonenumber, info.EmailId);
                     info.Phonenumber = Convert.ToString(Console.ReadLine());
                     return "Profile";
