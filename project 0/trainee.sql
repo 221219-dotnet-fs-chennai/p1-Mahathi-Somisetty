@@ -37,6 +37,7 @@ CREATE TABLE [EducationalDetails](
     CONSTRAINT [pk_education] PRIMARY KEY([TraineeId]),
     CONSTRAINT [Fk_education] FOREIGN KEY([TraineeId]) REFERENCES TraineeDetails(Traineeid)
 );
+alter table EducationalDetails add [Percentage] varchar(15);
 
 
 select * from TraineeDetails;
