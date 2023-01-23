@@ -162,6 +162,8 @@ namespace Trainer
                 details.EmailId = Read1.GetString(2);
                 details.Gender = Read1.GetString(3);
                 details.Age = Read1.GetInt32(4);
+                details.PhoneNumber = Read1.GetString(5);
+                details.Password = Read1.GetString(6);
             }
             Read1.Close();
             SqlDataReader Read2 = command1.ExecuteReader();
@@ -190,6 +192,7 @@ namespace Trainer
                 details.HQualification = Read4.GetString(1);
                 details.YearOfPassing = Read4.GetString(2);
                 details.Stream = Read4.GetString(3);
+                details.Percentage= Read4.GetString(4); 
             }
             Read4.Close();
 

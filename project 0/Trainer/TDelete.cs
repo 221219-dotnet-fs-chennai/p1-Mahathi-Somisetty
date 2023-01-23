@@ -45,7 +45,8 @@ namespace Trainer
             switch (userInput)
             {
                 case "1":
-                    Console.WriteLine("Deleting FullName"); 
+                    Console.WriteLine("Deleting FullName");
+                    info.FullName = "Null";
                     repo.TDelete("TraineeDetails", "FullName" ,info.EmailId);
                     return "Profile";
                 case "2":
@@ -65,48 +66,48 @@ namespace Trainer
                     return "Profile";
                 case "3":
                     Console.WriteLine("Deleting Gender :  ");
-                    
+                    info.Gender = "Null";
                     repo.TDelete("TraineeDetails", "Gender" ,info.EmailId);
                     return "Profile";
                 case "4":
                     Console.WriteLine("Deleting Age :  ");
-                    
+                    info.Age = 0;
                     repo.TDelete("TraineeDetails","Age", info.EmailId);
                     return "Profile";
                 case "5":
                     Console.WriteLine("Deleting PhoneNumber :  ");
-                    
+                    info.PhoneNumber = "Null";
                     repo.TDelete ("TraineeDetails","PhoneNumber", info.EmailId);
                     return "Profile";
                 case "6":
                     Console.WriteLine(" Deleting Highest Qualification :  ");
-                    
+                    info.HQualification = "Null";
                     repo.TDelete("EducationalDetails", "HQualification", info.EmailId);
                     return "Profile";
                 case "7":
                     Console.WriteLine("Deleting Passing year :  ");
-                    
-                    repo.TDelete("EducationalDetails", "PassingYear", info.EmailId);
+                    info.YearOfPassing = "Null";
+                    repo.TDelete("EducationalDetails", "YearOfPassing", info.EmailId);
                     return "Profile";
                 case "8":
                     Console.WriteLine("Deleting Percentage :  ");
-                    
+                    info.Percentage = "Null";
                     repo.TDelete("EducationalDetails", "Percentage", info.EmailId);
                     return "Profile";
                 case "9":
                     Console.WriteLine("Deleting Stream :  ");
-                    
+                    info.Stream = "Null";
                     repo.TDelete("EducationalDetails", "Stream",info.EmailId);
                     return "Profile";
 
                 case "10":
                     Console.WriteLine("Deleting Company Name:  ");
-                    
+                    info.Company_name = "Null";
                     repo.TDelete("CompanyDetails", "CompanyName", info.EmailId);
                     return "Profile";
                 case "11":
                     Console.WriteLine(" Deleting Project name :  ");
-                    
+                    info.ProjectName = "Null";
                     repo.TDelete("CompanyDetails", "ProjectName", info.EmailId);
                     return "Profile";
                 case "12":
@@ -116,22 +117,22 @@ namespace Trainer
                     return "Profile";
                 case "13":
                     Console.WriteLine("Deleting Experience :  ");
-                    
+                    info.Experience = "Null";
                     repo.TDelete("CompanyDetails", "Experience", info.EmailId);
                     return "Profile";
                 case "14":
                     Console.WriteLine("Deleting SKillName :  ");
-                    
-                    repo.TDelete("Skills", "SkillName", info.EmailId);
+                    info.Skill_name = "Null";
+                    repo.TDelete("Skills", "Skill_name", info.EmailId);
                     return "Profile";
                 case "15":
                     Console.WriteLine(" Deleting SkillType :  ");
-                    
-                    repo.TDelete("Skills", "SkillType", info.EmailId);
+                    info.Skill_Type = "Null";
+                    repo.TDelete("Skills", "Skill_Type", info.EmailId);
                     return "Profile";
                 case "16":
                     Console.WriteLine(" Deleting Expertise :  ");
-                    
+                    info.Expertise = "Null";
                     repo.TDelete("Skills", "Expertise", info.EmailId);
                     return "Profile";
                 case "0":
