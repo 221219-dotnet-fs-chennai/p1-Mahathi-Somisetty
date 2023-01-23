@@ -49,13 +49,14 @@ namespace Trainer
 
                 command.ExecuteNonQuery();
 
-                string query1 = @"insert into EducationalDetails(HQualification, YearOfPassing, Stream) values ( @HQualification, @YearOfPassing, @Stream)";
+                string query1 = @"insert into EducationalDetails(HQualification, YearOfPassing, Stream, Percentage) values ( @HQualification, @YearOfPassing, @Stream, @Percentage)";
 
                 SqlCommand command1 = new SqlCommand(query1, connection);
                 //command1.Parameters.AddWithValue("@TraineeId ", TraineeId);
                 command1.Parameters.AddWithValue("@HQualification", details.HQualification);
                 command1.Parameters.AddWithValue("@YearOfPassing", details.YearOfPassing);
                 command1.Parameters.AddWithValue("@Stream", details.Stream);
+                command1.Parameters.AddWithValue("@Percentage", details.Percentage);
 
                 command1.ExecuteNonQuery();
 

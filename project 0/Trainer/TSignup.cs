@@ -143,7 +143,7 @@ namespace Trainer
                     return "TSignup";
                 case "17":
                     Console.WriteLine("Password:");
-                    Console.WriteLine("passWord Should Contain Minimum Four characters, at least one letter and one number:");
+                    Console.WriteLine("passWord Should Contain Minimum Four characters, at least one capitalletter and one number:");
                     string regex1 = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$";
                     string? Password = Console.ReadLine();
                     if (Regex.IsMatch(Password, regex1))
