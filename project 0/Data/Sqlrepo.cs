@@ -181,7 +181,8 @@ namespace Trainer
             int TrainId = Convert.ToInt32(command.ExecuteScalar());
             Console.WriteLine(TrainId);
             string query1 = $@" Delete from {TableName} set {ColumnName}= 'Null'  where  TraineeId='{TrainId}';";
-            SqlCommand command1 = new SqlCommand(query, connect); 
+            SqlCommand command1 = new SqlCommand(query1, connect); 
+            command1.ExecuteNonQuery();
 
             Console.WriteLine("Details Updated Successfully");
 

@@ -29,6 +29,9 @@ namespace Data
                     case "Tupdate":
                         menu = new Tupdate();
                         break;
+                    case "TDelete":
+                        menu = new TDelete();
+                        break;
                     case "Exit":
                         repeat = false;
                         break;

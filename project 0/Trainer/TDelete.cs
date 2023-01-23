@@ -45,12 +45,11 @@ namespace Trainer
             switch (userInput)
             {
                 case "1":
-                    Console.WriteLine("Enter FullName:  ");
-                    info.FullName = Console.ReadLine();
+                    Console.WriteLine("Deleting FullName"); 
                     repo.TDelete("TraineeDetails", "FullName" ,info.EmailId);
                     return "Profile";
                 case "2":
-                    Console.WriteLine("Enter EmailID :  ");
+                    Console.WriteLine("Deleting");
                     string regex = @"^[\w\d+_.-]+@[\w\d.-]+$";
                     string EmailId = Console.ReadLine();
                     if (Regex.IsMatch(EmailId, regex))
@@ -65,74 +64,74 @@ namespace Trainer
 
                     return "Profile";
                 case "3":
-                    Console.WriteLine("Enter Gender :  ");
-                    info.Gender = Console.ReadLine();
+                    Console.WriteLine("Deleting Gender :  ");
+                    
                     repo.TDelete("TraineeDetails", "Gender" ,info.EmailId);
                     return "Profile";
                 case "4":
-                    Console.WriteLine("Enter Age :  ");
-                    info.Age = Convert.ToString(Console.ReadLine());
+                    Console.WriteLine("Deleting Age :  ");
+                    
                     repo.TDelete("TraineeDetails","Age", info.EmailId);
                     return "Profile";
                 case "5":
-                    Console.WriteLine("Enter PhoneNumber :  ");
-                    info.Phonenumber = Convert.ToString(Console.ReadLine());
+                    Console.WriteLine("Deleting PhoneNumber :  ");
+                    
                     repo.TDelete ("TraineeDetails","PhoneNumber", info.EmailId);
                     return "Profile";
                 case "6":
-                    Console.WriteLine("Highest Qualification :  ");
-                    info.HighestQualification = Console.ReadLine();
+                    Console.WriteLine(" Deleting Highest Qualification :  ");
+                    
                     repo.TDelete("EducationalDetails", "HQualification", info.EmailId);
                     return "Profile";
                 case "7":
-                    Console.WriteLine("Enter Passing year :  ");
-                    info.PassingYear = Console.ReadLine();
+                    Console.WriteLine("Deleting Passing year :  ");
+                    
                     repo.TDelete("EducationalDetails", "PassingYear", info.EmailId);
                     return "Profile";
                 case "8":
-                    Console.WriteLine("Percentage :  ");
-                    info.Percentage = Console.ReadLine();
+                    Console.WriteLine("Deleting Percentage :  ");
+                    
                     repo.TDelete("EducationalDetails", "Percentage", info.EmailId);
                     return "Profile";
                 case "9":
-                    Console.WriteLine("Stream :  ");
-                    info.Stream = Console.ReadLine();
+                    Console.WriteLine("Deleting Stream :  ");
+                    
                     repo.TDelete("EducationalDetails", "Stream",info.EmailId);
                     return "Profile";
 
                 case "10":
-                    Console.WriteLine("Company Name:  ");
-                    info.CompanyName = Console.ReadLine();
+                    Console.WriteLine("Deleting Company Name:  ");
+                    
                     repo.TDelete("CompanyDetails", "CompanyName", info.EmailId);
                     return "Profile";
                 case "11":
-                    Console.WriteLine(" Project name :  ");
-                    info.ProjectName = Console.ReadLine();
+                    Console.WriteLine(" Deleting Project name :  ");
+                    
                     repo.TDelete("CompanyDetails", "ProjectName", info.EmailId);
                     return "Profile";
                 case "12":
-                    Console.WriteLine("Position :  ");
-                    info.Position = Console.ReadLine();
+                    Console.WriteLine("Deleting Position :  ");
+                   
                     repo.TDelete("CompanyDetails", "Position", info.EmailId);
                     return "Profile";
                 case "13":
-                    Console.WriteLine("Experience :  ");
-                    info.Experience = Console.ReadLine();
+                    Console.WriteLine("Deleting Experience :  ");
+                    
                     repo.TDelete("CompanyDetails", "Experience", info.EmailId);
                     return "Profile";
                 case "14":
-                    Console.WriteLine("Enter SKillName :  ");
-                    info.SkillName = Console.ReadLine();
+                    Console.WriteLine("Deleting SKillName :  ");
+                    
                     repo.TDelete("Skills", "SkillName", info.EmailId);
                     return "Profile";
                 case "15":
-                    Console.WriteLine("SkillType :  ");
-                    info.SkillType = Console.ReadLine();
+                    Console.WriteLine(" Deleting SkillType :  ");
+                    
                     repo.TDelete("Skills", "SkillType", info.EmailId);
                     return "Profile";
                 case "16":
-                    Console.WriteLine("Expertise :  ");
-                    info.Expertise = Console.ReadLine();
+                    Console.WriteLine(" Deleting Expertise :  ");
+                    
                     repo.TDelete("Skills", "Expertise", info.EmailId);
                     return "Profile";
                 case "0":
