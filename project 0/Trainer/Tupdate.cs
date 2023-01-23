@@ -19,20 +19,20 @@ namespace Trainer
             Console.WriteLine("[2] EmailId:" + info.EmailId);
             Console.WriteLine("[3] Gender:" + info.Gender);
             Console.WriteLine("[4] Age:" + info.Age);
-            Console.WriteLine("[5] PhoneNumber:" + info.Phonenumber);
+            Console.WriteLine("[5] PhoneNumber:" + info.PhoneNumber);
             Console.WriteLine("***********Educational Details***********");
-            Console.WriteLine("[6] Highest Qualification:" + info.HighestQualification);
-            Console.WriteLine("[7] Passing year:" + info.PassingYear);
+            Console.WriteLine("[6] Highest Qualification:" + info.HQualification);
+            Console.WriteLine("[7] YearOfPassing:" + info.YearOfPassing);
             Console.WriteLine("[8] Percentage:" + info.Percentage);
             Console.WriteLine("[9] Stream:" + info.Stream);
             Console.WriteLine("***********Company Details***********");
-            Console.WriteLine("[10] CompanyName:" + info.CompanyName);
+            Console.WriteLine("[10] CompanyName:" + info.Company_name);
             Console.WriteLine("[11] ProjectName:" + info.ProjectName);
             Console.WriteLine("[12] Position:" + info.Position);
             Console.WriteLine("[13] Experience:" + info.Experience);
             Console.WriteLine("***********Skill Details***********");
-            Console.WriteLine("[14] SkillName:" + info.SkillName);
-            Console.WriteLine("[15] SkillType:" + info.SkillType);
+            Console.WriteLine("[14] SkillName:" + info.Skill_name);
+            Console.WriteLine("[15] SkillType:" + info.Skill_Type);
             Console.WriteLine("[16] Expertise :" + info.Expertise);
             Console.WriteLine("[0] save: ");
             Console.WriteLine("[00] Back");
@@ -75,28 +75,28 @@ namespace Trainer
                     return "Profile";
                 case "4":
                     Console.WriteLine("Enter Age :  ");
-                    info.Age = Console.ReadLine();
-                    repo.Tupdate("TraineeDetails", "Age", info.Age, info.EmailId);
-                    info.Age = Convert.ToString(Console.ReadLine());
+                    info.Age = Convert.ToInt32(Console.ReadLine());
+                    repo.Tupdate("TraineeDetails", "Age", info.Age.ToString(), info.EmailId);
+        
                     return "Profile";
                 case "5":
                     Console.WriteLine("Enter PhoneNumber :  ");
-                    info.Phonenumber = Console.ReadLine();
-                    repo.Tupdate("TraineeDetails", "PhoneNumber", info.Phonenumber, info.EmailId);
-                    info.Phonenumber = Convert.ToString(Console.ReadLine());
+                    info.PhoneNumber = Console.ReadLine();
+                    repo.Tupdate("TraineeDetails", "PhoneNumber", info.PhoneNumber, info.EmailId);
+                    info.PhoneNumber = Convert.ToString(Console.ReadLine());
                     return "Profile";
                 case "6":
                     Console.WriteLine("Highest Qualification :  ");
                     info.FullName = Console.ReadLine();
                     
-                    info.HighestQualification = Console.ReadLine();
-                    repo.Tupdate("EducationalDetails", "HQualification", info.HighestQualification, info.EmailId);
+                    info.HQualification = Console.ReadLine();
+                    repo.Tupdate("EducationalDetails", "HQualification", info.HQualification, info.EmailId);
                     return "Profile";
                 case "7":
                     Console.WriteLine("Enter Passing year :  ");
                     
-                    info.PassingYear = Console.ReadLine();
-                    repo.Tupdate("EducationalDetails", "Passingyear", info.PassingYear, info.EmailId);
+                    info.YearOfPassing = Console.ReadLine();
+                    repo.Tupdate("EducationalDetails", "YearOfPassing", info.YearOfPassing, info.EmailId);
                     return "Profile";
                 case "8":
                     Console.WriteLine("Percentage :  ");
@@ -114,8 +114,8 @@ namespace Trainer
                 case "10":
                     Console.WriteLine("Company Name:  ");
                     
-                    info.CompanyName = Console.ReadLine();
-                    repo.Tupdate("ompanyDetails", "CompanyName", info.CompanyName, info.EmailId);
+                    info.Company_name = Console.ReadLine();
+                    repo.Tupdate("CompanyDetails", "Company_name", info.Company_name, info.EmailId);
                     return "Profile";
                 case "11":
                     Console.WriteLine(" Project name :  ");
@@ -138,14 +138,14 @@ namespace Trainer
                 case "14":
                     Console.WriteLine("Enter SKillsName :  ");
                     
-                    info.SkillName = Console.ReadLine();
-                    repo.Tupdate("Skills", "SkillName", info.SkillName, info.EmailId);
+                    info.Skill_name = Console.ReadLine();
+                    repo.Tupdate("Skills", "Skill_name", info.Skill_name, info.EmailId);
                     return "Profile";
                 case "15":
                     Console.WriteLine("SkillType :  ");
                     
-                    info.SkillType = Console.ReadLine();
-                    repo.Tupdate("Skills", "SkillType", info.SkillType, info.EmailId);
+                    info.Skill_Type = Console.ReadLine();
+                    repo.Tupdate("Skills", "Skill_Type", info.Skill_Type, info.EmailId);
                     return "Profile";
                 case "16":
                     Console.WriteLine("Expertise :  ");

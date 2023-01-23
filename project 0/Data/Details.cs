@@ -21,18 +21,6 @@ namespace Data
         { 
             get; set;
         }
-        public int SkillId 
-        { 
-            get; set;
-        }
-        public int EducationalId 
-        { 
-            get; set;
-        }
-        public int CompanyId 
-        { 
-            get; set;
-        }
 
         public string? FullName
         {
@@ -46,19 +34,19 @@ namespace Data
         {
             get; set;
         }
-        public string? Age
+        public int? Age
         {
             get; set;
         }
-        public string? Phonenumber
+        public string? PhoneNumber
         {
             get; set;
         }
-        public string? HighestQualification
+        public string? HQualification
         {
             get; set;
         }
-        public string? PassingYear
+        public string? YearOfPassing
         {
             get; set;
         }
@@ -71,7 +59,7 @@ namespace Data
             get; set;
         }
         
-        public string? CompanyName
+        public string? Company_name
         {
             get; set;
         }
@@ -87,11 +75,11 @@ namespace Data
         {
             get; set;
         }
-        public string? SkillName
+        public string? Skill_name
         {
             get; set;
         }
-        public string? SkillType
+        public string? Skill_Type
         {
             get; set;
         }
@@ -101,9 +89,9 @@ namespace Data
         }
         
 
-        public string TrainerDetails()
+        public string TDetails()
         {
-            return $@"{FullName},{EmailId}, {FullName}, {Gender}, {Age}, {Phonenumber}, {HighestQualification}, {PassingYear}, {Percentage}, {Stream}, {CompanyName}, {ProjectName}, {Position}, {Experience}, {SkillName}, {SkillType}, {Expertise} ";
+            return $@"{FullName},{EmailId},  {Gender}, {Age}, {PhoneNumber}, {HQualification}, {YearOfPassing}, {Percentage}, {Stream}, {Company_name}, {ProjectName}, {Position}, {Experience}, {Skill_name}, {Skill_Type}, {Expertise} ";
            
         }
     }

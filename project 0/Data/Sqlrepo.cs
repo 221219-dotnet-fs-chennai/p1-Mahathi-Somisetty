@@ -44,7 +44,7 @@ namespace Trainer
                 command.Parameters.AddWithValue("@EmailId", details.EmailId);
                 command.Parameters.AddWithValue("@Gender", details.Gender);
                 command.Parameters.AddWithValue("@Age", details.Age);
-                command.Parameters.AddWithValue("@PhoneNumber", details.Phonenumber);
+                command.Parameters.AddWithValue("@PhoneNumber", details.PhoneNumber);
                 command.Parameters.AddWithValue("@Password", details.Password);
 
                 command.ExecuteNonQuery();
@@ -53,8 +53,8 @@ namespace Trainer
 
                 SqlCommand command1 = new SqlCommand(query1, connection);
                 //command1.Parameters.AddWithValue("@TraineeId ", TraineeId);
-                command1.Parameters.AddWithValue("@HQualification", details.HighestQualification);
-                command1.Parameters.AddWithValue("@YearOfPassing", details.PassingYear);
+                command1.Parameters.AddWithValue("@HQualification", details.HQualification);
+                command1.Parameters.AddWithValue("@YearOfPassing", details.YearOfPassing);
                 command1.Parameters.AddWithValue("@Stream", details.Stream);
 
                 command1.ExecuteNonQuery();
@@ -63,7 +63,7 @@ namespace Trainer
 
                 SqlCommand command2 = new SqlCommand(query2, connection);
                 // command2.Parameters.AddWithValue("@TraineeId", TraineeId);
-                command2.Parameters.AddWithValue("@company_Name", details.CompanyName);
+                command2.Parameters.AddWithValue("@company_Name", details.Company_name);
                 command2.Parameters.AddWithValue("@ProjectName", details.ProjectName);
                 command2.Parameters.AddWithValue("@Position", details.Position);
                 command2.Parameters.AddWithValue("@Experience", details.Experience);
@@ -73,8 +73,8 @@ namespace Trainer
 
                 SqlCommand command3 = new SqlCommand(query3, connection);
                 //command3.Parameters.AddWithValue("@TraineeId", TraineeId);
-                command3.Parameters.AddWithValue("@Skill_Name", details.SkillName);
-                command3.Parameters.AddWithValue("@Skill_Type", details.SkillType);
+                command3.Parameters.AddWithValue("@Skill_Name", details.Skill_name);
+                command3.Parameters.AddWithValue("@Skill_Type", details.Skill_Type);
                 command3.Parameters.AddWithValue("@Expertise", details.Expertise);
                 command3.ExecuteNonQuery();
 
@@ -152,12 +152,46 @@ namespace Trainer
             SqlCommand command1 = new SqlCommand(query5, connect);
             string query6 = $@"select *from EducationalDetails where TraineeId = '{TrainId}';";
             SqlCommand command2 = new SqlCommand(query6, connect);
-            string query7 = $@"select 8from CompanyDetails where TraineeId = '{TrainId}';";
+            string query7 = $@"select * from CompanyDetails where TraineeId = '{TrainId}';";
             SqlCommand command3 = new SqlCommand(query7, connect);
-            command.ExecuteNonQuery();
-            command1.ExecuteNonQuery();
-            command2.ExecuteNonQuery();
-            command3.ExecuteNonQuery();
+            SqlDataReader Read1 = command0.ExecuteReader();
+            while (Read1.Read())
+            {
+                details.TraineeId = Read1.GetInt32(0);
+                details.FullName = Read1.GetString(1);
+                details.EmailId = Read1.GetString(2);
+                details.Gender = Read1.GetString(3);
+                details.Age = Read1.GetInt32(4);
+            }
+            Read1.Close();
+            SqlDataReader Read2 = command1.ExecuteReader();
+            while(Read2.Read())
+            {
+                details.TraineeId = Read2.GetInt32(0);
+                details.Skill_name = Read2.GetString(1);
+                details.Skill_Type = Read2.GetString(2);
+                details.Expertise = Read2.GetString(3);
+            }
+            Read2.Close();
+            SqlDataReader Read3 = command2.ExecuteReader();
+            while(Read3.Read())
+            {
+                details.TraineeId = Read3.GetInt32(0);
+                details.Company_name = Read3.GetString(1);
+                details.ProjectName = Read3.GetString(2);
+                details.Position = Read3.GetString(3);
+                details.Experience = Read3.GetString(3);
+            }
+            Read3.Close();
+            SqlDataReader Read4 = command3.ExecuteReader();
+            while(Read4.Read())
+            {
+                details.TraineeId = Read4.GetInt32(0);
+                details.HQualification = Read4.GetString(1);
+                details.YearOfPassing = Read4.GetString(2);
+                details.Stream = Read4.GetString(3);
+            }
+            Read4.Close();
 
 
             return details; 
@@ -187,7 +221,7 @@ namespace Trainer
             SqlCommand command = new SqlCommand(query, connect);
             int TrainId = Convert.ToInt32(command.ExecuteScalar());
             Console.WriteLine(TrainId);
-            string query1 = $@" Delete from {TableName} set {ColumnName}= 'Null'  where  TraineeId='{TrainId}';";
+            string query1 = $@" update {TableName} set {ColumnName} = 'Null'  where  TraineeId = '{TrainId}';";
             SqlCommand command1 = new SqlCommand(query1, connect); 
             command1.ExecuteNonQuery();
 

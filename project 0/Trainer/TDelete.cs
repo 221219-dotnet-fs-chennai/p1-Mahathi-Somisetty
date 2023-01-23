@@ -19,20 +19,20 @@ namespace Trainer
             Console.WriteLine("[2] EmailId:" + info.EmailId);
             Console.WriteLine("[3] Gender:" + info.Gender);
             Console.WriteLine("[4] Age:" + info.Age);
-            Console.WriteLine("[5] PhoneNumber:" + info.Phonenumber);
+            Console.WriteLine("[5] PhoneNumber:" + info.PhoneNumber);
             Console.WriteLine("***********Educational Details***********");
-            Console.WriteLine("[6] Highest Qualification:" + info.HighestQualification);
-            Console.WriteLine("[7] Passing year:" + info.PassingYear);
+            Console.WriteLine("[6] Highest Qualification:" + info.HQualification);
+            Console.WriteLine("[7] Passing year:" + info.YearOfPassing);
             Console.WriteLine("[8] Percentage:" + info.Percentage);
             Console.WriteLine("[9] Stream:" + info.Stream);
             Console.WriteLine("***********Company Details***********");
-            Console.WriteLine("[10] CompanyName:" + info.CompanyName);
+            Console.WriteLine("[10] CompanyName:" + info.Company_name);
             Console.WriteLine("[11] ProjectName:" + info.ProjectName);
             Console.WriteLine("[12] Position:" + info.Position);
             Console.WriteLine("[13] Experience:" + info.Experience);
             Console.WriteLine("***********Skill Details***********");
-            Console.WriteLine("[14] SkillName:" + info.SkillName);
-            Console.WriteLine("[15] SkillType:" + info.SkillType);
+            Console.WriteLine("[14] SkillName:" + info.Skill_name);
+            Console.WriteLine("[15] SkillType:" + info.Skill_Type);
             Console.WriteLine("[16] Expertise :" + info.Expertise);
             Console.WriteLine("[0] save: ");
 
@@ -111,7 +111,7 @@ namespace Trainer
                     return "Profile";
                 case "12":
                     Console.WriteLine("Deleting Position :  ");
-                   
+                    info.Position = "Null";
                     repo.TDelete("CompanyDetails", "Position", info.EmailId);
                     return "Profile";
                 case "13":

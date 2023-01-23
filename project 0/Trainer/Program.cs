@@ -14,13 +14,13 @@ namespace Data
             IMenu menu = new Menu();
             while(repeat)
             {
-                Details details = new Details();
                 menu.Display();
-                string ab = menu.Userchoice();
+                string? ab = menu.Userchoice();
                 switch (ab)
                 {
                     case "Login":
                         Log.Logger.Information("Login Page");
+                        Details details = new Details();
                         menu = new TLogin();
                         break;
                     case "Signup":
