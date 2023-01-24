@@ -18,6 +18,9 @@ namespace Data
                 string? ab = menu.Userchoice();
                 switch (ab)
                 {
+                    case "View":
+                        menu = new ViewallTrainers();
+                        break;
                     case "Login":
                         Log.Logger.Information("Login Page");
                         Details details = new Details();

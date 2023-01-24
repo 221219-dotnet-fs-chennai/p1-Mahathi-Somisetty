@@ -15,6 +15,8 @@ namespace Data
         //List<Details> GetTrainerDisconnected();
         Details Get(string email);
 
+        List<Details> ViewAllTrainers();
+
         void Tupdate(string TableName, string ColoumnName, string Newvalue, string TraineeId );
         void TDelete(string TableName, string ColoumnName, string TraineeId);
 

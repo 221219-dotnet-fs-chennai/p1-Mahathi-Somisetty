@@ -11,6 +11,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Reflection.PortableExecutable;
 using System.Net.Cache;
 using System.Security.Cryptography.X509Certificates;
+using System.ComponentModel.DataAnnotations;
 
 namespace Trainer
 {
@@ -183,7 +184,7 @@ namespace Trainer
                 details.Company_name = Read3.GetString(1);
                 details.ProjectName = Read3.GetString(2);
                 details.Position = Read3.GetString(3);
-                details.Experience = Read3.GetString(3);
+                details.Experience = Read3.GetString(4);
             }
             Read3.Close();
             SqlDataReader Read4 = command3.ExecuteReader();
@@ -231,6 +232,32 @@ namespace Trainer
 
             Console.WriteLine("Details Updated Successfully");
 
+        }
+
+        public List<Details> ViewAllTrainers()
+        {
+            List<Details> details = new List<Details>();
+            using SqlConnection connect = new SqlConnection(Connection);
+            connect.Open();
+            string query = $@"select TraineeId , FullName, EmailId, Gender, Age, PhoneNumber from TraineeDetails";
+            SqlDataAdapter ada = new SqlDataAdapter(query, connect);
+            DataSet ds = new DataSet();
+            ada.Fill(ds);
+            DataTable dt = ds.Tables[0];
+            foreach (DataRow dr in dt.Rows)
+            {
+                details.Add(new Details()
+                {
+
+                    TraineeId = (int)dr["TraineeId"],
+                    FullName = (string)dr["FullName"],
+                    EmailId = (string)dr["EmailId"],
+                    Gender = (string)dr["Gender"],
+                    Age = (int)dr["Age"],
+                    PhoneNumber = (string)dr["PhoneNumber"]
+                }); ;
+            }
+            return details;
         }
     }
 }

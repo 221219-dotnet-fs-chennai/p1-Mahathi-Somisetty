@@ -12,6 +12,7 @@ namespace Trainer
         public void Display()
         {
             Console.WriteLine("Welcome to Trainer");
+            Console.WriteLine("[0] To view All Trainers");
             Console.WriteLine("[1] Signup");
             Console.WriteLine("[2] Login");
             Console.WriteLine("[3] Exit"); 
@@ -21,6 +22,8 @@ namespace Trainer
             string? UserChoice = Console.ReadLine();
             switch (UserChoice)
             {
+                case "0":
+                    return "View";
                 case "1":
                     return "Signup";
                 case "2":

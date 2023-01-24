@@ -149,7 +149,6 @@ namespace Trainer
                     return "Profile";
                 case "16":
                     Console.WriteLine("Expertise :  ");
-                    
                     info.Expertise = Console.ReadLine();
                     repo.Tupdate("Skills", "Expertise", info.Expertise, info.EmailId);
                     return "Profile";

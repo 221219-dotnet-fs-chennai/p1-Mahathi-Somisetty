@@ -91,7 +91,7 @@ namespace Data
 
         public string TDetails()
         {
-            return $@"{FullName},{EmailId},  {Gender}, {Age}, {PhoneNumber}, {HQualification}, {YearOfPassing}, {Percentage}, {Stream}, {Company_name}, {ProjectName}, {Position}, {Experience}, {Skill_name}, {Skill_Type}, {Expertise} ";
+            return $@"{FullName},{EmailId},  {Gender}, {Age}, {PhoneNumber}";
            
         }
     }
