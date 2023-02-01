@@ -210,7 +210,7 @@ namespace Trainer
             string query = $@" select TraineeId from TraineeDetails where EmailId = '{email}'; ";
             SqlCommand command = new SqlCommand(query, connect);
             int TrainId = Convert.ToInt32(command.ExecuteScalar());
-            Console.WriteLine(TrainId);
+            
             string query1 = $@" update {TableName} set  {ColumnName} = '{Newvalue}' where  TraineeId='{TrainId}'";
             SqlCommand command1 = new SqlCommand(query1, connect);
             command1.ExecuteNonQuery();

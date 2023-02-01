@@ -22,5 +22,6 @@ namespace Data
 
         bool Login(string email);
         //bool Login(string? emailId);
+        List<Details> GetTraineeDetails();
     }
 }

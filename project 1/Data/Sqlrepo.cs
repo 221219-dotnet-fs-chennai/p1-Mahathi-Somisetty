@@ -259,6 +259,11 @@ namespace Trainer
             }
             return details;
         }
+
+        public List<Details> GetTraineeDetails()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
