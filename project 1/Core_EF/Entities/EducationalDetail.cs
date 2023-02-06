@@ -8,7 +8,7 @@ public partial class EducationalDetail
     public int TraineeId { get; set; }
 
     public string? Hqualification { get; set; }
-
+    
     public string? YearOfPassing { get; set; }
 
     public string? Stream { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-     class EducationalD
+    public class EducationalD
     {
         public EducationalD() 
         { 

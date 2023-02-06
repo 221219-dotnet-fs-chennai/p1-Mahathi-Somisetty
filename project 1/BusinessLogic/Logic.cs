@@ -1,5 +1,7 @@
-﻿using Trainer;
-using Data;
+﻿using Model;
+using Core_EF;
+
+
 
 namespace BusinessLogic
 {

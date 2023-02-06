@@ -29,7 +29,7 @@ namespace Model
         {
             get; set;
         }
-        public string SkillDetail()
+        public string Skill()
         {
         return $@"{TraineeId},{Skill_name},{Skill_Type},{Expertise}";
 

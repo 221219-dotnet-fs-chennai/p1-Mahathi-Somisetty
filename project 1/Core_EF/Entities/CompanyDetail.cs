@@ -7,7 +7,7 @@ public partial class CompanyDetail
 {
     public int TraineeId { get; set; }
 
-    public string? CompanyName { get; set; }
+    public string? Company_name { get; set; }
 
     public string? ProjectName { get; set; }
 
@@ -16,4 +16,5 @@ public partial class CompanyDetail
     public string? Experience { get; set; }
 
     public virtual TraineeDetail Trainee { get; set; } = null!;
+    
 }

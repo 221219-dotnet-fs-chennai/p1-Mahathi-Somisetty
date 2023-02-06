@@ -7,9 +7,9 @@ public partial class Skill
 {
     public int TraineeId { get; set; }
 
-    public string? SkillName { get; set; }
+    public string? Skill_name { get; set; }
 
-    public string? SkillType { get; set; }
+    public string? Skill_Type { get; set; }
 
     public string? Expertise { get; set; }
 

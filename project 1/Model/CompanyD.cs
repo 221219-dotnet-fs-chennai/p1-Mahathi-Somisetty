@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class CompanyD
+    public class CompanyD
     {
         public int TraineeId
         {
@@ -16,7 +16,7 @@ namespace Model
         {
             get; set;
         }
-        public string? ProjectName
+        public string? Project_Name
         {
             get; set;
         }
