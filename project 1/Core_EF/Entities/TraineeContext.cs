@@ -23,9 +23,9 @@ public partial class TraineeContext : DbContext
 
     public virtual DbSet<TraineeDetail> TraineeDetails { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=Laptop-S7D0E4KP;Database=trainee;Trusted_Connection=True;Encrypt=False;");
+        => optionsBuilder.UseSqlServer("Server=Laptop-S7D0E4KP;Database=trainee;Trusted_Connection=True;Encrypt=False;");*/
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -34,7 +34,7 @@ public partial class TraineeContext : DbContext
             entity.HasKey(e => e.TraineeId).HasName("pk_company");
 
             entity.Property(e => e.TraineeId).ValueGeneratedOnAdd();
-            entity.Property(e => e.CompanyName)
+            entity.Property(e => e.Company_name)
                 .HasMaxLength(30)
                 .IsUnicode(false)
                 .HasColumnName("Company_name");
@@ -87,11 +87,11 @@ public partial class TraineeContext : DbContext
             entity.Property(e => e.Expertise)
                 .HasMaxLength(20)
                 .IsUnicode(false);
-            entity.Property(e => e.SkillName)
+            entity.Property(e => e.Skill_name)
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("Skill_name");
-            entity.Property(e => e.SkillType)
+            entity.Property(e => e.Skill_Type)
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("Skill_Type");

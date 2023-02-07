@@ -30,7 +30,7 @@ namespace Model
         }
         public string CompanyDetails()
         {
-            return $@"{TraineeId},{Company_name},{ProjectName},{Position},{Experience}";
+            return $@"{TraineeId},{Company_name},{Project_Name},{Position},{Experience}";
         }
     }
 }

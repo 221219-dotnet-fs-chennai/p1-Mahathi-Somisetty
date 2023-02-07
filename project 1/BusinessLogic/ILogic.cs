@@ -1,4 +1,4 @@
-﻿using Data;
+﻿using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,7 @@ namespace BusinessLogic
 {
     public interface ILogic
     {
-        IEnumerable<Details> GetTraineeDetails();
+        IEnumerable<TrainerD> GetTraineeDetails();
+        IEnumerable<SkillD> GetSkillDetails();
     }
 }

@@ -1,22 +1,26 @@
-﻿using Model;
+﻿using Microsoft.EntityFrameworkCore.Migrations.Operations;
+using Core_EF.Entities;
 using Core_EF;
-
-
+using Model;
 
 namespace BusinessLogic
 {
     public class Logic : ILogic
     {
-        IRepo data;
+        IRepo repo;
 
-        public Logic(string connectionString)
+        public Logic(IRepo rep)
         {
-            data = new Sqlrepo(connectionString);
-
+            this.repo = rep;
         }
-        public IEnumerable<Details> GetTraineeDetails()
+
+        public IEnumerable<TrainerD> GetTraineeDetails()
         {
-            return data.GetTraineeDetails();
+            return Map.TrainerMap(repo.GetTraineeDetails());
+        }
+        public IEnumerable<SkillD> GetSkillDetails()
+        {
+            return Map.SkillMap(repo.GetSkillDetails());
         }
     }
 }

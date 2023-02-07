@@ -15,11 +15,10 @@ namespace BusinessLogic
 
 
             string regex = @"^[\w\d+_.-]+@[\w\d.-]+$";
-            string? EmailId = Console.ReadLine();
 
-            if (Regex.IsMatch(EmailId, regex))
+            if (Regex.IsMatch(str,regex))
             {
-                return EmailId;
+                return str;
             }
             else
             {
@@ -31,10 +30,9 @@ namespace BusinessLogic
         public static string ValidPassword(string str)
         {
             string regex = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$";
-            string? Password = Console.ReadLine();
-            if (Regex.IsMatch(Password, regex))
+            if (Regex.IsMatch(str,regex))
             {
-                return Password;
+                return str;
             }
             else
             {

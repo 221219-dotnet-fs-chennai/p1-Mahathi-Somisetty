@@ -89,7 +89,7 @@ namespace Model
         }
         public string DetailsAll()
         {
-            return $@"{TraineeId},{password},{FullName},{Age},{Gender},{EmailId},{PhoneNumber},{HQualification},{YearOfPassing},{Percentage},{Stream},{Company_name},{ProjectName},{Position}
+            return $@"{TraineeId},{Password},{FullName},{Age},{Gender},{EmailId},{PhoneNumber},{HQualification},{YearOfPassing},{Percentage},{Stream},{Company_name},{ProjectName},{Position}
                     {Experience},{Skill_name},{Skill_Type},{Expertise}";
         }
     }
