@@ -22,5 +22,13 @@ namespace BusinessLogic
         {
             return Map.SkillMap(repo.GetSkillDetails());
         }
+        public IEnumerable<Core_EF.Alldetails> GetAllDetails()
+        {
+            return repo.GetAllDetails();
+        }
+        public TrainerD Add(TraineeDetail trainee)
+        {
+            return Map.TrainerMap(repo.Add(Map.TrainerMap(TrainerD)))
+        }
     }
 }

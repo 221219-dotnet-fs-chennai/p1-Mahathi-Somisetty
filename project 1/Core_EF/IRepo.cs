@@ -11,5 +11,7 @@ namespace Core_EF
     {
         List<Core_EF.Entities.TraineeDetail> GetTraineeDetails();
         List<Core_EF.Entities.Skill> GetSkillDetails();
+        List<Core_EF.Alldetails> GetAllDetails();
+        TraineeDetail Add(TraineeDetail traineeDetail);
     }
 }

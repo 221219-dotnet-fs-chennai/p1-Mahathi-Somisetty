@@ -20,7 +20,7 @@ public partial class TraineeDetail
     public string? Password { get; set; }
 
     public virtual CompanyDetail? CompanyDetail { get; set; }
-
+    
     public virtual EducationalDetail? EducationalDetail { get; set; }
 
     public virtual Skill? Skill { get; set; }

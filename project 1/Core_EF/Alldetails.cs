@@ -1,28 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace Core_EF
 {
-    public class Details
+    public class Alldetails
     {
-        public Details()
+        public Alldetails()
         {
 
         }
-        public int TraineeId 
+        public int TraineeId
+        {
+            get;
+            set;
+        }
+        public string? Password
         {
             get; set;
         }
-        public string Password 
-        { 
-            get; set;
-        }
-
-        public string? FullName
+        public string FullName
         {
             get; set;
         }
@@ -34,11 +33,11 @@ namespace Model
         {
             get; set;
         }
-        public int? Age
+        public string? Age
         {
             get; set;
         }
-        public string? PhoneNumber
+        public string PhoneNumber
         {
             get; set;
         }
@@ -46,19 +45,19 @@ namespace Model
         {
             get; set;
         }
-        public string? YearOfPassing
+        public string YearOfPassing
         {
             get; set;
         }
         public string? Percentage
         {
-            get; set;
+            get;
+            set;
         }
         public string? Stream
         {
             get; set;
         }
-        
         public string? Company_name
         {
             get; set;
@@ -70,6 +69,7 @@ namespace Model
         public string? Position
         {
             get; set;
+
         }
         public string? Experience
         {
@@ -87,12 +87,10 @@ namespace Model
         {
             get; set;
         }
-        
-
-        public string TDetails()
+        public string Alldetail()
         {
-            return $@"{FullName},{EmailId},  {Gender}, {Age}, {PhoneNumber}";
-           
+            return $@"{TraineeId},{Password},{FullName},{Age},{Gender},{EmailId},{PhoneNumber},{HQualification},{YearOfPassing},{Percentage},{Stream},{Company_name},{ProjectName},{Position}
+                    {Experience},{Skill_name},{Skill_Type},{Expertise}";
         }
     }
 }

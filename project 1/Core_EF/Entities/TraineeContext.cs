@@ -96,7 +96,7 @@ public partial class TraineeContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("Skill_Type");
 
-            entity.HasOne(d => d.Trainee).WithOne(p => p.Skill)
+            object value = entity.HasOne(d => d.Trainee).WithOne(p => p.Skill)
                 .HasForeignKey<Skill>(d => d.TraineeId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("Fk_skill");

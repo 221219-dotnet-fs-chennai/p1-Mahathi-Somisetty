@@ -11,5 +11,8 @@ namespace BusinessLogic
     {
         IEnumerable<TrainerD> GetTraineeDetails();
         IEnumerable<SkillD> GetSkillDetails();
+        IEnumerable<Core_EF.Alldetails> GetAllDetails();
+
+        DetailsA Add(DetailsA TrainerD);
     }
 }

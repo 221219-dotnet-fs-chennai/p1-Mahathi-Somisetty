@@ -107,6 +107,18 @@ namespace BusinessLogic
                 Expertise = obj.Expertise,
             };
         }
+
+       
+
+        /*public static Map.DetailsA detailsMap(Core_EF.Entities.Alldetails obj)
+        {
+            return new Map.DetailsA()
+            {
+
+            }
+        }*/
+
+
         public static IEnumerable<Model.TrainerD> TrainerMap(IEnumerable<Core_EF.Entities.TraineeDetail> trainer)
         {
             return trainer.Select(TrainerMap);
@@ -124,5 +136,16 @@ namespace BusinessLogic
             return trainer.Select(SkillMap);
         }
         //public static IEnumerable<Model.DetailsA>Map(IEnumerable<Core_EF.TraineeDetail> datas)
+        public static Model.DetailsA Map(Core_EF.TraineeDetail detail)
+        {
+            return new Model.DetailsA()
+            {
+                TraineeId = detail.TraineeId,
+                FullName = detail.FullName,
+                EmailId = detail.EmailId,
+                Gender = detail.Gender,
+            };
+        }
     }
+
 }
