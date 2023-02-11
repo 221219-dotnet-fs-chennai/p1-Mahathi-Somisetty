@@ -22,5 +22,8 @@ namespace BusinessLogic
         CompanyD AddCompanyDetails(CompanyD company);
 
        TrainerD DeleteAllDetails(int id);
+
+       TrainerD updatebyid(int id, TrainerD trainer);
+        TrainerD updatebyid(int id, EducationalD education);
     }
 }

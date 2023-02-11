@@ -19,6 +19,8 @@ namespace Core_EF
         CompanyDetail AddCompanyDetails(CompanyDetail companyDetail);
 
         TraineeDetail DeleteAllDetails(int id);
+
+        TraineeDetail updatebyid(TraineeDetail details);
           
     }
 }

@@ -100,5 +100,11 @@ namespace Core_EF
             return t;
 
         }
+        public TraineeDetail updatebyid(TraineeDetail detail)
+        {
+            obj.TraineeDetails.Update(detail);
+            obj.SaveChanges();
+            return detail;
+        }
     }
 }

@@ -59,5 +59,23 @@ namespace BusinessLogic
                 return null;
             }
         }
+
+        public TrainerD updatebyid(int id, TrainerD trainer)
+        {
+            var u = (from detail in repo.GetTraineeDetails()
+                     where detail.TraineeId == id
+                     select detail).FirstOrDefault();
+            if(u!= null)
+            {
+                u.FullName = trainer.FullName;
+                u.EmailId = trainer.EmailId;
+                u.Age = Convert.ToInt32(trainer.Age);
+                u.Gender = trainer.Gender;
+                u.PhoneNumber = trainer.PhoneNumber;
+
+                u = repo.updatebyid(u);
+            }
+            return Map.TrainerMap(u);
+        }
     }
 }

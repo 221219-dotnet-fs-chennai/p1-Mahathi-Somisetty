@@ -189,5 +189,31 @@ namespace Service.Controllers
 
             }
         }
+        [HttpPut("updatetraineedetails")]
+        public IActionResult update(int id, TrainerD details)
+        {
+            try
+            {
+                if (id != null)
+                {
+                    var up = logic.updatebyid(id, details);
+                    return Ok(up);
+                }
+                else
+                {
+                    return BadRequest("error");
+                }
+            }
+            catch (SqlException e)
+            {
+                return BadRequest("Cant find data");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+
+            }
+        }
+        }
     }
-}
+
