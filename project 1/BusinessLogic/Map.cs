@@ -21,7 +21,7 @@ namespace BusinessLogic
                 TraineeId = obj.TraineeId,
                 EmailId = Validations.ValidEmailId(obj.EmailId),
                 FullName = obj.FullName,
-                Password = Validations.ValidPassword(obj.Password),
+                Password = obj.Password,
                 Gender = obj.Gender,
                 Age = Convert.ToInt32(obj.Age),
                 PhoneNumber = obj.PhoneNumber
@@ -34,7 +34,7 @@ namespace BusinessLogic
                 TraineeId = obj.TraineeId,
                 EmailId = Validations.ValidEmailId(obj.EmailId),
                 FullName = obj.FullName,
-                Password = Validations.ValidPassword(obj.Password),
+                Password =obj.Password,
                 Gender = obj.Gender,
                 Age = Convert.ToInt32(obj.Age),
                 PhoneNumber = obj.PhoneNumber
@@ -136,16 +136,7 @@ namespace BusinessLogic
             return trainer.Select(SkillMap);
         }
         //public static IEnumerable<Model.DetailsA>Map(IEnumerable<Core_EF.TraineeDetail> datas)
-        public static Model.DetailsA Map(Core_EF.TraineeDetail detail)
-        {
-            return new Model.DetailsA()
-            {
-                TraineeId = detail.TraineeId,
-                FullName = detail.FullName,
-                EmailId = detail.EmailId,
-                Gender = detail.Gender,
-            };
-        }
+       
     }
 
 }

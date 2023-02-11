@@ -27,19 +27,19 @@ namespace BusinessLogic
             }
            
         }
-        public static string ValidPassword(string str)
+       /* public static string ValidPassword(string str)
         {
-            string regex = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$";
-            if (Regex.IsMatch(str,regex))
+            string regex = "^(.{ 0,7}|[^0 - 9] *|[^A - Z] *|[^a - z] *|[a - zA - Z0 - 9] *)$";
+             if (Regex.IsMatch(str, regex))
             {
                 return str;
             }
             else
             {
-                
+
                 throw new Exception("Password Pattern mismatch");
             }
         }
-
+*/
     }
 }

@@ -59,6 +59,19 @@ namespace Core_EF
             return AllD.ToList();
 
         }
+        public TraineeDetail AddTraineeDetails(TraineeDetail trainee)
+        {
+            obj.Add(trainee);
+            obj.SaveChanges();
+            return trainee;
+        }
+        public Skill AddSkillDetails(Skill skill)
+        {
+            obj.Add(skill);
+            obj.SaveChanges();
+            return skill;
+        }
 
+        
     }
 }

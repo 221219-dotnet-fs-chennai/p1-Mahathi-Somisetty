@@ -26,9 +26,15 @@ namespace BusinessLogic
         {
             return repo.GetAllDetails();
         }
-        public TrainerD Add(TraineeDetail trainee)
+
+        public TrainerD AddTraineeDetails(TrainerD trainer)
         {
-            return Map.TrainerMap(repo.Add(Map.TrainerMap(TrainerD)))
+            return Map.TrainerMap(repo.AddTraineeDetails(Map.TrainerMap(trainer)));
+        }
+
+        public SkillD AddSkillDetails(SkillD skill)
+        {
+            return Map.SkillMap(repo.AddSkillDetails(Map.SkillMap(skill)));
         }
     }
 }

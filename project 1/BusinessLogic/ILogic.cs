@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Core_EF;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace BusinessLogic
         IEnumerable<TrainerD> GetTraineeDetails();
         IEnumerable<SkillD> GetSkillDetails();
         IEnumerable<Core_EF.Alldetails> GetAllDetails();
-
-        DetailsA Add(DetailsA TrainerD);
+        TrainerD AddTraineeDetails(TrainerD trainer);
+        
+        SkillD AddSkillDetails(SkillD skill);
     }
 }

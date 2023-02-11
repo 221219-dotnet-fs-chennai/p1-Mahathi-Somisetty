@@ -3,6 +3,7 @@ using Core_EF.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Model;
 
 namespace Service.Controllers
 {
@@ -46,7 +47,7 @@ namespace Service.Controllers
             try
             {
                 var Ttry = logic.GetSkillDetails();
-                if (Ttry.Count() > 0 )
+                if (Ttry.Count() > 0)
                 {
                     return Ok(Ttry);
                 }
@@ -86,6 +87,42 @@ namespace Service.Controllers
             catch (Exception e)
             {
                 return BadRequest(e);
+            }
+        }
+        [HttpPost("ADDTraineeDetails")]
+        public IActionResult Add(TrainerD d)
+        {
+            try
+            {
+                var t = logic.AddTraineeDetails(d);
+                return Created("Added", t);
+            }
+            catch (SqlException e)
+            {
+                return BadRequest("Cant find data");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+
+            }
+        }
+        [HttpPost("AddSkillDetails")]
+        public IActionResult Add(SkillD d)
+        {
+            try
+            {
+                var s = logic.AddSkillDetails(d);
+                return Created("Added", s);
+            }
+            catch (SqlException e)
+            {
+                return BadRequest("Cant find data");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+
             }
         }
     }
