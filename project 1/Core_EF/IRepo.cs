@@ -17,6 +17,8 @@ namespace Core_EF
         Skill AddSkillDetails(Skill skill);
         EducationalDetail AddEducationalDetails(EducationalDetail educationalDetail);
         CompanyDetail AddCompanyDetails(CompanyDetail companyDetail);
+
+        TraineeDetail DeleteAllDetails(int id);
           
     }
 }

@@ -83,6 +83,22 @@ namespace Core_EF
             obj.SaveChanges();
             return company;
         }
-        
+        public Entities.TraineeDetail DeleteAllDetails (int id)
+        {
+            var t =obj.TraineeDetails.Where(x => x.TraineeId== id).FirstOrDefault();
+            var e = obj.EducationalDetails.Where(x => x.TraineeId == id).FirstOrDefault();
+            var c = obj.CompanyDetails.Where(x => x.TraineeId == id).FirstOrDefault();
+            var s = obj.Skills.Where(x => x.TraineeId == id).FirstOrDefault();
+            if (t != null)
+            {
+                obj.Skills.Remove(s);
+                obj.CompanyDetails.Remove(c);
+                obj.EducationalDetails.Remove(e);
+                obj.TraineeDetails.Remove(t);
+                obj.SaveChanges();
+            }
+            return t;
+
+        }
     }
 }

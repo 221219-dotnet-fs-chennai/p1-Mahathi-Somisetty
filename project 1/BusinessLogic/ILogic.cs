@@ -20,5 +20,7 @@ namespace BusinessLogic
         EducationalD AddEducationalDetails(EducationalD educational);
 
         CompanyD AddCompanyDetails(CompanyD company);
+
+       TrainerD DeleteAllDetails(int id);
     }
 }

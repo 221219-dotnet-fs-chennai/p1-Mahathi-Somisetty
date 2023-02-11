@@ -163,5 +163,31 @@ namespace Service.Controllers
 
             }
         }
+        [HttpDelete("Deletingdetails")]
+        public IActionResult Del(int id) 
+        {
+            try
+            {
+                if (id!=null)
+                {
+                    var r=logic.DeleteAllDetails(id);
+                    return Ok(r);
+                }
+                else
+                {
+                    return BadRequest($"error");
+                }
+
+            }
+            catch (SqlException e)
+            {
+                return BadRequest("Cant find data");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+
+            }
+        }
     }
 }

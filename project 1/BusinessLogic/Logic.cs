@@ -46,5 +46,18 @@ namespace BusinessLogic
         {
             return Map.CompanyMap(repo.AddCompanyDetails(Map.CompanyMap(company)));
         }
+
+        public TrainerD DeleteAllDetails(int Id)
+        {
+            var t = repo.DeleteAllDetails(Id);
+            if (t != null)
+            {
+                return Map.TrainerMap(t);
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
