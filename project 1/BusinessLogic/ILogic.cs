@@ -16,5 +16,9 @@ namespace BusinessLogic
         TrainerD AddTraineeDetails(TrainerD trainer);
         
         SkillD AddSkillDetails(SkillD skill);
+
+        EducationalD AddEducationalDetails(EducationalD educational);
+
+        CompanyD AddCompanyDetails(CompanyD company);
     }
 }

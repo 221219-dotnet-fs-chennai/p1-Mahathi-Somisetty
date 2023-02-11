@@ -71,7 +71,18 @@ namespace Core_EF
             obj.SaveChanges();
             return skill;
         }
-
+        public EducationalDetail AddEducationalDetails(EducationalDetail educational)
+        {
+            obj.Add(educational);
+            obj.SaveChanges();
+            return educational;
+        }
+        public CompanyDetail AddCompanyDetails(CompanyDetail company)
+        {
+            obj.Add(company);
+            obj.SaveChanges();
+            return company;
+        }
         
     }
 }

@@ -36,5 +36,15 @@ namespace BusinessLogic
         {
             return Map.SkillMap(repo.AddSkillDetails(Map.SkillMap(skill)));
         }
+
+        public EducationalD AddEducationalDetails(EducationalD educational)
+        {
+            return Map.EducationMap(repo.AddEducationalDetails(Map.EducationMap(educational)));
+        }
+
+        public CompanyD AddCompanyDetails(CompanyD company)
+        {
+            return Map.CompanyMap(repo.AddCompanyDetails(Map.CompanyMap(company)));
+        }
     }
 }

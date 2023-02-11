@@ -3,6 +3,7 @@ using Core_EF.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.Identity.Client;
 using Model;
 
 namespace Service.Controllers
@@ -114,6 +115,43 @@ namespace Service.Controllers
             {
                 var s = logic.AddSkillDetails(d);
                 return Created("Added", s);
+            }
+            catch (SqlException e)
+            {
+                return BadRequest("Cant find data");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+
+            }
+        }
+        [HttpPost("AddEducationaldetails")]
+        public IActionResult Add(EducationalD d)
+        {
+            try
+            {
+                var s = logic.AddEducationalDetails(d);
+                return Created("Added", s);
+            }
+            catch (SqlException e)
+            {
+                return BadRequest("Cant find data");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+
+            }
+
+        }
+        [HttpPost("AddCompanydetails")]
+        public IActionResult Add(CompanyD C)
+        {
+            try
+            {
+                var c = logic.AddCompanyDetails(C);
+                return Created("Added", c);
             }
             catch (SqlException e)
             {
