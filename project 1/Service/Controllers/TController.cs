@@ -66,6 +66,55 @@ namespace Service.Controllers
                 return BadRequest(eg);
             }
         }
+        [HttpGet("Get EducationalDetails")]
+        public ActionResult e()
+        {
+            try
+            {
+                var Ttry = logic.GetEducationalDetails();
+                if (Ttry.Count() > 0)
+                {
+                    return Ok(Ttry);
+                }
+                else
+                {
+                    return BadRequest("Database is empty");
+                }
+            }
+            catch (SqlException e)
+            {
+                return BadRequest("cant find data");
+            }
+            catch (Exception eg)
+            {
+                return BadRequest(eg);
+            }
+        }
+        [HttpGet("GetCompanydetails")]
+        public IActionResult c()
+        {
+            try
+            {
+                var Ttry = logic.GetCompanyDetails();
+                if(Ttry.Count() > 0)
+                {
+                    return Ok(Ttry);    
+                }
+                else
+                {
+                    return BadRequest("Data base is empty");
+                }
+            }
+            catch (SqlException e)
+            {
+                return BadRequest("cant find data");
+            }
+            catch (Exception eg)
+            {
+                return BadRequest(eg);
+            }
+            
+        }
         [HttpGet("GetAllDetails")]
         public ActionResult P()
         {
@@ -214,6 +263,80 @@ namespace Service.Controllers
 
             }
         }
+        [HttpPut("updateEducation")]
+        public IActionResult Eupdate(int id, EducationalD details)
+        {
+            try
+            {
+                if (id != null)
+                {
+                    var Ed = logic.Edupdatebyid(id, details);
+                    return Ok(Ed);
+                }
+                else
+                {
+                    return BadRequest("error");
+                }
+            }
+            catch (SqlException e)
+            {
+                return BadRequest("cant find data");
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
+        [HttpPut("updateskilldetails")]
+        public IActionResult Supdate(int id,SkillD details)
+        {
+            try
+            {
+                if (id != null)
+                {
+                    var S = logic.Supdatebyid(id, details);
+                    return Ok(S);
+                }
+                else
+                {
+                    return BadRequest("error");
+                }
+
+            }
+            catch (SqlException e)
+            {
+                return BadRequest("cant find data");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
+        [HttpPut("companydetails")]
+        public IActionResult Cupdatebyid(int id,CompanyD details) 
+        {
+            try
+            {
+                if (id != null)
+                {
+                    var C = logic.Cupdatebyid(id, details);
+                    return Ok(C);
+                }
+                else
+                {
+                    return BadRequest("error");
+                }
+            }
+            catch (SqlException e)
+            {
+                return BadRequest("cant find data");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
         }
     }
+    
 

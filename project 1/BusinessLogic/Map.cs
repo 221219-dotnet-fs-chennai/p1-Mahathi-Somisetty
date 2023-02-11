@@ -123,19 +123,22 @@ namespace BusinessLogic
         {
             return trainer.Select(TrainerMap);
         }
+        //displays only trainer details
         public static IEnumerable<Model.CompanyD> CompanyMap(IEnumerable<Core_EF.Entities.CompanyDetail> trainer)
         {
             return trainer.Select(CompanyMap);
         }
+        // displays only company details
         public static IEnumerable<Model.EducationalD> EducationMap(IEnumerable<Core_EF.Entities.EducationalDetail> trainer)
         {
             return trainer.Select(EducationMap);
         }
+        //display trainer educational details
         public static IEnumerable<Model.SkillD> SkillMap(IEnumerable<Core_EF.Entities.Skill> trainer)
         {
             return trainer.Select(SkillMap);
         }
-        //public static IEnumerable<Model.DetailsA>Map(IEnumerable<Core_EF.TraineeDetail> datas)
+        //return skill details of the details
        
     }
 

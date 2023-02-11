@@ -25,6 +25,14 @@ namespace Core_EF
         {
             return obj.Skills.ToList();
         }
+        public List<Entities.EducationalDetail> GetEducationalDetails()
+        {
+            return obj.EducationalDetails.ToList();
+        }
+        public List<Entities.CompanyDetail> GetCompanyDetails() 
+        {
+            return obj.CompanyDetails.ToList();
+        }
         public List<Alldetails> GetAllDetails()
         {
             var TrainerD = obj.TraineeDetails;
@@ -105,6 +113,26 @@ namespace Core_EF
             obj.TraineeDetails.Update(detail);
             obj.SaveChanges();
             return detail;
+        }
+        public EducationalDetail Edupdatebyid(EducationalDetail detail)
+        {
+            obj.EducationalDetails.Update(detail);
+            obj.SaveChanges();
+            return detail;
+        }
+        public Skill updateSkillDetails(Skill skill)
+        {
+            obj.Skills.Update(skill);
+            obj.SaveChanges();
+            return skill;
+        }
+
+
+        public CompanyDetail Cupdatebyid(CompanyDetail companyDetail)
+        {
+            obj.CompanyDetails.Update(companyDetail);
+            obj.SaveChanges();
+            return companyDetail;
         }
     }
 }
