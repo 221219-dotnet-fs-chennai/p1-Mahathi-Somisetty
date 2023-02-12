@@ -14,7 +14,7 @@ namespace BusinessLogic
         {
 
 
-            string regex = @"^[\w\d+_.-]+@[\w\d.-]+$";
+            string regex = @"^[a-z\d+_.-]+@[\w\d.-]+$";
 
             if (Regex.IsMatch(str,regex))
             {
@@ -27,9 +27,9 @@ namespace BusinessLogic
             }
            
         }
-       /* public static string ValidPassword(string str)
+        public static string ValidPassword(string str)
         {
-            string regex = "^(.{ 0,7}|[^0 - 9] *|[^A - Z] *|[^a - z] *|[a - zA - Z0 - 9] *)$";
+            string regex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{4,8}$";
              if (Regex.IsMatch(str, regex))
             {
                 return str;
@@ -40,6 +40,17 @@ namespace BusinessLogic
                 throw new Exception("Password Pattern mismatch");
             }
         }
-*/
+        public static string ValidPhoneNumber(string str)
+        {
+            string regex = "^\\d{10}$";
+            if (Regex.IsMatch(str, regex))
+            {
+                return str;
+            }
+            else
+            {
+                throw new Exception("Pattern Mismatched");
+            }
+        }
     }
 }
