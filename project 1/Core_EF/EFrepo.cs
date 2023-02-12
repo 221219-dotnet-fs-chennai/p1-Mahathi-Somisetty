@@ -134,5 +134,32 @@ namespace Core_EF
             obj.SaveChanges();
             return companyDetail;
         }
-    }
+        public bool login(string Emailid, string Password)
+        {
+            try
+            {
+                var l = (from detail in obj.TraineeDetails
+                         where detail.EmailId == Emailid
+                         select detail).FirstOrDefault();
+                if (l != null)
+                {
+
+                    var log = (from detail in obj.TraineeDetails
+                               where detail.Password == Password
+                               select detail).FirstOrDefault();
+                    if (log != null)
+                    {
+                        return true;
+
+                    }
+                    return false;
+                }
+                return false;
+            }
+            catch(Exception e) {
+                throw new("Something went wrong try again!");
+            }
+
+        }
+}
 }

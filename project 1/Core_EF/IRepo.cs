@@ -27,5 +27,6 @@ namespace Core_EF
         Skill updateSkillDetails(Skill skill);
         EducationalDetail Edupdatebyid(EducationalDetail educationalDetail);
         CompanyDetail Cupdatebyid(CompanyDetail companyDetail);
+        bool login(string email, string password);
     }
 }

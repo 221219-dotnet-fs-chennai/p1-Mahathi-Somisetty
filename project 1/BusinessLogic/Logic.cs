@@ -2,6 +2,7 @@
 using Core_EF.Entities;
 using Core_EF;
 using Model;
+using System.Security.Cryptography;
 
 namespace BusinessLogic
 {
@@ -136,6 +137,10 @@ namespace BusinessLogic
                 c=repo.Cupdatebyid(c);
             }
             return Map.CompanyMap(c);
+        }
+        public bool login(string EmailId,string Password) 
+        {
+            return repo.login(EmailId, Password);
         }
     }
 }

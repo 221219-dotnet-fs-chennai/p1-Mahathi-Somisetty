@@ -35,5 +35,6 @@ namespace BusinessLogic
 
         SkillD Supdatebyid(int id, SkillD skill);
         CompanyD Cupdatebyid(int id, CompanyD company);
+        bool login(string Emailid,string Password);
     }
 }

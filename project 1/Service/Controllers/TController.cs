@@ -312,6 +312,34 @@ namespace Service.Controllers
                 return BadRequest(e);
             }
         }
+        [HttpGet("Login")]
+        public IActionResult login(string email,string pass) 
+        {
+            try
+            {
+                if(email!= null)
+                {
+                    var l = logic.login(email, pass);
+                    if (l == true)
+                    {
+                        return Ok("Login Successful");
+                    }
+                    else
+                    {
+                        return BadRequest("Login Failed");
+                    }
+                }
+                return BadRequest("Please Enter Your Credentials");
+            }
+            catch (SqlException e)
+            {
+                return BadRequest(e);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
         [HttpPut("companydetails")]
         public IActionResult Cupdatebyid(int id,CompanyD details) 
         {
@@ -329,7 +357,7 @@ namespace Service.Controllers
             }
             catch (SqlException e)
             {
-                return BadRequest("cant find data");
+                return BadRequest("Data not found");
             }
             catch (Exception e)
             {
