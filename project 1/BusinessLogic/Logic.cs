@@ -142,5 +142,11 @@ namespace BusinessLogic
         {
             return repo.login(EmailId, Password);
         }
+
+        public IEnumerable<SkillD> FindTrainerBySkill(string skill)
+        {
+            var tara = repo.GetSkillDetails().Where(i => i.Skill_name == skill);
+        return Map.SkillMap(tara);
+        } 
     }
 }

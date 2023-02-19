@@ -340,6 +340,30 @@ namespace Service.Controllers
                 return BadRequest(ex);
             }
         }
+        [HttpGet("Search bySkill")]
+        public ActionResult FindTrainerBySkill(string skill)
+        {
+            try
+            {
+                var s=logic.FindTrainerBySkill(skill);
+                if (s != null)
+                {
+                    return Ok(s);
+                }
+                else
+                {
+                    return NotFound("Trainers with the skill not found");
+                }
+            }
+            catch (SqlException e)
+            {
+                return BadRequest("Data not found");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
         [HttpPut("companydetails")]
         public IActionResult Cupdatebyid(int id,CompanyD details) 
         {

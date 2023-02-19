@@ -160,6 +160,13 @@ namespace Core_EF
                 throw new("Something went wrong try again!");
             }
 
+
+
+        }
+
+        public IEnumerable<Entities.Skill> FindTrainerBySkill()
+        {
+            return obj.Skills.ToList();
         }
 }
 }

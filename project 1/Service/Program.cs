@@ -4,6 +4,12 @@ using Core_EF.Entities;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors(options =>
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        }));
 
 // Add services to the container.
 
@@ -16,6 +22,7 @@ var config = builder.Configuration.GetConnectionString("TrainerConnection");
 builder.Services.AddDbContext<TraineeContext>(Options=> Options.UseSqlServer(config));
 builder.Services.AddScoped<IRepo, EFrepo>();
 builder.Services.AddScoped<ILogic, Logic>();
+
 
 var app = builder.Build();
 
@@ -31,5 +38,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors();
 
 app.Run();
