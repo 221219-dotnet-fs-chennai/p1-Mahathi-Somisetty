@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <style>
+        nav{
+            background-color: rgb(59, 59, 129);
+            list-style: none;
+    
+        }
+        nav li{
+            text-decoration: none;
+            
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <li><a href="firsthtml.html" style="color: white; text-decoration: none;">Home</a></li>
+    </nav>
+    <form action="">
+        <h1>Search by</h1>
+        <label for="name">Name</label>
+        <input type="text" id="sn">
+        <button type="submit" onclick="getskill()">Submit</button>
+    </form>
+    <ol>
+
+    </ol>
+</body>
+
+<script>
+//     function getskill(){
+//     var r=document.getElementById("sn").value;
+//     console.log(r);
+//     fetch(`https://localhost:7256/api/T/Search bySkill?skill=${r}`)
+//     .then(Response=>Response.json())
+//     .then(data=>data.forEach(element => {
+//         const markup=`<li><h5>Trainee details</h5>
+//             Name : ${element.traineeId}
+//             Expertise :${element.expertise} </li>`
+//             document.querySelector("ol").insertAdjacentHTML('beforeend',markup);
+        
+//     })
+//     )
+// }
+
+function getskill(){
+    var r=document.getElementById("sn").value;
+    console.log(r);
+    fetch(`https://localhost:7256/api/T/Search bySkill?skill=${r}`)
+    .then(Response=>Response.json())
+    .then(data=>console.log(data))
+
+}
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+	
+</head>
+<body>
+  <button><a href="firsthtml.html">Back</a></button><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <fieldset>
+  <label for="Mail">EmailId:</label>
+  <input type="text" id="email"><br>
+  <br><label for="Password">Password:</label>
+  <input type="Password" id="psw"><br>
+  <br>
+  <button>Clear</button>
+  <button type="submit" onclick="login()" id="log">submit</button>
+</fieldset>
+  <script>
+    function login() {
+    
+        var email = document.getElementById('email').value;
+        var psw = document.getElementById('psw').value;
+        console.log(email,psw);
+        fetch(`https://localhost:7256/api/T/Login?email=${email}&pass=${psw}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'email': email,
+                'pass': psw
+            }
+        }).then(response => {
+                if (response.status === 200) {
+                
+                    alert('Login Success');
+                    window.location.href='profile.html';
+                }
+                else {
+                    alert('login fail');
+                }
+            })
+            
+
+    };
+  </script>
+</body>
+</html>

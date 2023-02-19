@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>updateTrainer</title>
+</head>
+<body>
+    <h2>Update Trainer Details</h2>
+    <fieldset>
+    <form action="">
+        <label for="Id">UserId</label>
+        <input type="text" id="usid"><br>
+        <br><label for="">FullName</label>
+        <input type="text" id="name"><br>
+        <br><label for="">EmailId</label>
+        <input type="Email" id="email"><br>
+        <br><label for="Gender" id="gen">Gender<span>*</span></label>
+      <input type="radio"  value="Female">
+      <label for="Female">Female</label><br>
+      <input type="radio"  value="Male">
+      <label for="Male">Male</label><br>
+      <input type="radio" value="others">
+      <label for="others">Others</label><br>
+      <br><label for="name"><b>Age<span>*</span></b></label>
+      <input type="number" id="age" placeholder="Ente your age" required><br>
+      <br><label for="Phone umber"><b>Phone Number<span>*</span></b></label>
+      <input type="number" id="phone" placeholder="Enter your mobile number"><br>
+      <br><label for="psw"><b>Create Password<span>*</span></b></label>
+      <input type="password" id="psw" placeholder="Enter Password" name="psw" required><br>
+      <button>Clear</button>
+      <button>Submit</button>
+    </form>
+</fieldset>
+</body>
+<script>
+    function Tupdate(){
+        let uid =document.getElementById("usid").value 
+        let iname=document.getElementById("Name").value
+        let email=document.getElementById("email").value
+        let Age=document.getElementsById("age").value
+        let phone=document.getElementById("phone").value
+        let password=document.getElementById("psw").value 
+        
+
+        fetch(`https://localhost:7256/api/T/updateskilldetails?id=${uid}`,{
+
+        method: "PUT",
+        body:JSON.stringify({
+            traineeId:uid,
+            password:password,
+            fullName:iname,
+            emailId:email,
+            gender:gender,
+            age:Age,
+            phoneNumber:phone
+        }),
+        headers:
+        {
+            "Content-type":"application/json; charset=UTF-8",
+        },
+    })
+    
+        .then(Response => {
+                if (Response.status === 200) {
+                    alert('Login Success');
+                    window.location.href='profile.html';
+                }
+                else {
+                    alert('login fail');
+                }
+            })
+    }
+
+</script>
+</html>

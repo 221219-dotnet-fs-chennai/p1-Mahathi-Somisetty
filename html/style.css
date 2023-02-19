@@ -1,0 +1,39 @@
+nav{
+    background-color: rgb(83, 83, 176);
+}
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+nav li {
+	display: inline-block;
+}
+
+nav li a {
+	display: block;
+	padding: 10px 20px;
+	color: #fff;
+	text-decoration: none;
+}
+
+nav li a:hover {
+	background-color: #555;
+}
+.logo {
+	margin-left: auto;
+    
+}
+
+.header {
+	text-align: center;
+	margin-top: 50px;
+}
+
+h1 {
+	font-size: 36px;
+	font-weight: bold;
+}
+
+
