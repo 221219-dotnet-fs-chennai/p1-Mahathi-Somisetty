@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>updateCompany</title>
+</head>
+<body>
+    <h2>Update Company Details</h2>
+    <fieldset>
+    <form id="forms">
+        <label for="id"><b>UserId</b></label>
+        <input type="text" id="uid"><br>
+        <label for="name"><b>Company Name<span>*</span></b></label>
+      <input type="text" id="cname" placeholder="company Name" required><br>
+      <br><label for="name"><b>Project</b></label>
+      <input type="text" id="project" placeholder="project"><br>
+      <br><label for="name"><b>Position<span>*</span></b></label>
+      <input type="text"  id="position" placeholder="Enter your position" required><br>
+      <br><label for="name"><b>Experience<span>*</span></b></label>
+      <input type="Number"id="Experience" placeholder="Enter your Experience" required><br>
+      <br>
+      <br>
+      <br>
+      <button>Clear</button>
+      <button onclick="UCompany()">Submit</button>
+    </form>
+</fieldset>
+</body>
+<script>
+    function UCompany(){
+        const f1 = document.getElementById("forms");
+        f1.addEvenListener("submit",event =>{
+            event.preventDefault();
+        });
+
+        let user=document.getElementById("uid").value;
+        let CName=document.getElementById("cname").value;
+        let project=document.getElementById("project").value;
+        let position=document.getElementById("position").value;
+        let experience = document.getElementById("Experience").value
+
+        fetch(`https://localhost:7256/api/T/companydetails?id=${user}`,{
+            method:"PUT",
+            body:Json.stringify({
+                traineeId:user,
+                company_name:CName,
+                project_Name:project,
+                position:position,
+                experience:experience
+            }),
+            headers:{
+                "Content-type":"application/json;charset=UTF-8",
+            },
+        })
+        .then((Response)=>{
+            if(Response.status===200){
+                alert("updated successfully");
+                window.location.href="profile.html";
+            }
+        })
+    }
+</script>
+</html>

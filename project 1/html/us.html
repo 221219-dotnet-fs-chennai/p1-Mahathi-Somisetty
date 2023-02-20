@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>updateSkills</title>
+    <!-- <script src="uskill.js"></script> -->
+</head>
+
+<body>
+    <h2>Update Skill Details</h2>
+    <fieldset>
+        <form id="forms">
+            <label for="id"><b>UserId</b></label>
+            <input type="text" id="uid"><br>
+            <br><label for="name"><b>SkillName</b></label>
+            <input type="text" placeholder="Skill name" id="sname"><br>
+            <br><label for="name"><b>SkillType</b></label>
+            <input type="text" placeholder="Skill Type" id="stype"><br>
+            <br><label for="name"><b>Expertise</b></label>
+            <input type="number" placeholder="Expertise" id="expertise"><br>
+            <br>
+            <br>
+            <button>Clear</button>
+            <button onclick="uskill()">Submit</button>
+        </form>
+    </fieldset>
+    <script>
+        function uskill() {
+            const f1 = document.getElementById("forms");
+            f1.addEventListener("submit" ,event =>{
+                event.preventDefault();
+            });
+
+            let user = document.getElementById("uid").value;
+            let Sname = document.getElementById("sname").value;
+            let Stype = document.getElementById("stype").value;
+            let Expertise = document.getElementById("expertise").value;
+
+            fetch(`https://localhost:7256/api/T/updateskilldetails?id=${user}`, {
+                method: "PUT",
+                body: JSON.stringify({
+                    traineeId: user,
+                    skill_name: Sname,
+                    skill_Type: Stype,
+                    expertise: Expertise
+                }),
+                headers: {
+                    "Content-type": "application/json;charset=UTF-8",
+                },
+            })
+                .then((Response) => {
+                    if (Response.status === 200) {
+                        alert("updated successfully");
+                        // window.location.href = "profile.html";
+                    } else {
+                        // window.location.href = "us.html";
+                    }
+                })
+        }
+    </script>
+</body>
+
+</html>

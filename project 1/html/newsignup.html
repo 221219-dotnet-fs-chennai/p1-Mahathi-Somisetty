@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+</style>
+
+<body>
+    <button><a href="firsthtml.html">Back</a></button>
+    <fieldset>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <br><label for="email"><b>Email<span>*</span></b></label>
+        <input type="text" id="e" placeholder="Enter Email" required><br>
+
+        <br><label for="psw"><b>Create Password<span>*</span></b></label>
+        <input type="password" id="pass" placeholder="Enter Password" required><br>
+
+        <br><label for="Phone number"><b>Phone Number<span>*</span></b></label>
+        <input type="number" id="no" placeholder="Enter your mobile number"><br>
+
+        <label for="name"><b>FullName<span>*</span></b></label>
+        <input type="text" id="n" placeholder="Enter your name" required><br>
+
+        <label for="Gender">Gender<span>*</span></label>
+        <input type="text" id="g" value="Female">
+
+        <br><label for="name"><b>Age<span>*</span></b></label>
+        <input type="number" id="a" placeholder="Ente your age" required><br>
+
+        <br>
+        <br>
+        <br>
+        <button id="signupbtn" onclick="signup()">Sign Up</button>
+        <button class="cancelbtn"><a href="Firsthtml.html">Cancel</a></button>
+    </fieldset>
+    <script>
+        function signup() {
+            const btnsign = document.getElementById("signupbtn")
+            btnsign.addEventListener("click", (e) => {
+                e.preventDefault()
+            })
+            fetch("https://localhost:7256/api/T/ADDTraineeDetails", {
+                // method: "POST",
+                // body: JSON.stringify({
+                //     "password": document.getElementById("pass").value,
+                //     "fullName":  document.getElementById("n").value,
+                //     "emailId":  document.getElementById("e").value,
+                //     "gender":  document.getElementById("g").value,
+                //     "age":  document.getElementById("a").value,
+                //     "phoneNumber": document.getElementById("no").value
+                // }),
+                // headers: {
+                //     "Content-type:application/json "
+                // },
+                method: "POST",
+                body: JSON.stringify({
+                    "password": document.getElementById("pass").value,
+                    "fullName": document.getElementById("n").value,
+                    "emailId": document.getElementById("e").value,
+                    "gender": document.getElementById("g").value,
+                    "age": document.getElementById("a").value,
+                    "phoneNumber": document.getElementById("no").value
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                },
+            }).then((res) => console.log(res))
+        }
+    </script>
+</body>
+
+</html>

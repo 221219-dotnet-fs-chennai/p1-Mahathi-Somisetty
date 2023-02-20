@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Educationt</title>
+</head>
+<body>
+    <h2>Add Educational Details</h2>
+    <fieldset>
+    <form >
+        
+        <label for="name"><b>Highest Qualification<span>*</span></b></label>
+        <input type="text" id="hq" placeholder="Enter your Qualification" required><br>
+        <br><label for="name"><b>Year Of Passing<span>*</span></b></label>
+        <input type="Year" id="yp" placeholder="Enter your passing Year" required> <br>
+        <br><label for="name"><b>Percentage<span>*</span></b></label>
+        <input type="text" id="percent" placeholder="Enter your Percentage" required><br>
+        <br><label for="name"><b>Stream</b></label>
+        <input type="text" id="stream" placeholder="Enter your stream" ><br>
+
+        
+        <br>
+        <br>
+        <br>
+        <button>Clear</button>
+        <button onclick="AE()">Submit</button> 
+    </form>
+</fieldset>
+</body>
+<script>
+    function AE(){
+
+        let hQ=document.getElementById("hq").value
+        let YP=document.getElementById("yp").value
+        let per=document.getElementById("percent").value
+        let Str=document.getElementById("stream").value
+    
+      fetch(`https://localhost:7256/api/T/AddEducationaldetails`,{
+        method:"POST",
+        body:JSON.stringify({
+            hQualification: hQ,
+            yearOfPassing:YP,
+            percentage:per,
+            stream:Str
+        }),
+        headers:{
+            'Accept':'application/json',
+            "content-type":"application/json;charset=UTF-8",
+        },
+      }) 
+      .then((Response)=>{
+        if(Response.status===200){
+            alert("Added Success");
+            Window.location.href="Profile.html";
+        }
+        else{
+            alert("retry");
+        }
+      })
+
+    }
+    
+</script>
+</html>

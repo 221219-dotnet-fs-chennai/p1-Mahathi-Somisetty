@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>updateCompany</title>
+    <title>Add company</title>
 </head>
 <body>
-    <h2>Update Company Details</h2>
+    <h2>Add Company Details</h2>
     <fieldset>
     <form action="">
+        
         <label for="name"><b>Company Name<span>*</span></b></label>
       <input type="text" id="cname" placeholder="company Name" required><br>
       <br><label for="name"><b>Project</b></label>
@@ -17,7 +18,7 @@
       <br><label for="name"><b>Position<span>*</span></b></label>
       <input type="text"  id="position" placeholder="Enter your position" required><br>
       <br><label for="name"><b>Experience<span>*</span></b></label>
-      <input type="Number"id="Expertise" placeholder="Enter your Experience" required><br>
+      <input type="Number"id="Experience" placeholder="Enter your Experience" required><br>
       <br>
       <br>
       <br>
@@ -26,4 +27,14 @@
     </form>
 </fieldset>
 </body>
+<script>
+    function Add(){
+        let CNname=document.getElementById("cname").value;
+        let project=document.getElementById("project").value;
+        let Pos=document.getElementById("position").value;
+        let exp=document.getElementById("Experience").value;
+
+        fetch(``)
+    }
+</script>
 </html>

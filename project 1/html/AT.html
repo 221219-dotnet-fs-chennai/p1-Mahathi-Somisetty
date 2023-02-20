@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Trainer</title>
+</head>
+<body>
+    <h2>Add Trainer Details</h2>
+    <fieldset>
+    <form action="">
+        <br><label for="psw"><b>Create Password<span>*</span></b></label>
+        <input type="password" id="psw" placeholder="Enter Password"  required><br>
+        <br><label for="">FullName</label>
+        <input type="text" id="name1"><br>
+        <br><label for="">EmailId</label>
+        <input type="Email" id="email"><br>
+        <br><label for="Gender" id="gen">Gender<span>*</span></label>
+      <input type="text" id="gen"/>
+      <br><label for="name"><b>Age<span>*</span></b></label>
+      <input type="number" id="age" placeholder="Ente your age" required><br>
+      <br><label for="Phone umber"><b>Phone Number<span>*</span></b></label>
+      <input type="number" id="phone" placeholder="Enter your mobile number"><br>
+      
+     
+      <button>Clear</button>
+      <button type="submit" onclick="Add()">Submit</button>
+    </form>
+</fieldset>
+</body>
+<script>
+    function Add(){
+        // let user=document.getElementById("usid").value;
+       
+        let nam=document.getElementById("name1").value
+        let email=document.getElementById("email").value
+        let gender=document.getElementById("gen").value
+        let Ag=document.getElementById("age").value
+        let phone=document.getElementById("phone").value
+        
+    }
+    fetch(`https://localhost:7256/api/T/ADD/TraineeDetails`,{
+        method:"POST",
+        body:JSON.stringify({
+             fullName:nam,
+            emailId:email,
+            gender:gender,
+            age:Ag,
+            phoneNumber:phone
+        
+
+        }),
+        headers:{
+            'Accept':'application/json',
+            "content-type":"application/json;charset=UTF-8",
+        },
+    })
+    .then((Response)=>{
+        if(Response.status===200){
+            alert("Added success");
+            window.location.href="Profile.html";
+        }
+        else{
+            alert("retry");
+        }
+    })
+</script>
+</html>
