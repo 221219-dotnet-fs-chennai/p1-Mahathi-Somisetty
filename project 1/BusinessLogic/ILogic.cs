@@ -28,7 +28,7 @@ namespace BusinessLogic
         //add educational details
         CompanyD AddCompanyDetails(CompanyD company);
         //delete all details
-       TrainerD DeleteAllDetails(int id);
+       TrainerD DeleteAllDetails(string email);
         //update trainer details by id
        TrainerD updatebyid(int id, TrainerD trainer);
        EducationalD Edupdatebyid(int id, EducationalD educational);

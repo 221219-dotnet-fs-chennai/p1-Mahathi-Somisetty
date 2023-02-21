@@ -58,9 +58,9 @@ namespace BusinessLogic
             return Map.CompanyMap(repo.AddCompanyDetails(Map.CompanyMap(company)));
         }
         //delete trainer details
-        public TrainerD DeleteAllDetails(int Id)
+        public TrainerD DeleteAllDetails(string email)
         {
-            var t = repo.DeleteAllDetails(Id);
+            var t = repo.DeleteAllDetails(email);
             if (t != null)
             {
                 return Map.TrainerMap(t);

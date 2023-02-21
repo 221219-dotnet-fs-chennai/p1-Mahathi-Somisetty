@@ -91,18 +91,32 @@ namespace Core_EF
             obj.SaveChanges();
             return company;
         }
-        public Entities.TraineeDetail DeleteAllDetails (int id)
+        public Entities.TraineeDetail DeleteAllDetails (string emailid)
         {
+            var det = obj.TraineeDetails.Where(e=>e.EmailId== emailid).FirstOrDefault();
+            var id = det.TraineeId;
             var t =obj.TraineeDetails.Where(x => x.TraineeId== id).FirstOrDefault();
             var e = obj.EducationalDetails.Where(x => x.TraineeId == id).FirstOrDefault();
             var c = obj.CompanyDetails.Where(x => x.TraineeId == id).FirstOrDefault();
             var s = obj.Skills.Where(x => x.TraineeId == id).FirstOrDefault();
             if (t != null)
             {
-                obj.Skills.Remove(s);
-                obj.CompanyDetails.Remove(c);
-                obj.EducationalDetails.Remove(e);
-                obj.TraineeDetails.Remove(t);
+                if (s != null)
+                {
+                    obj.Skills.Remove(s);
+                }
+                if (c != null)
+                {
+                    obj.CompanyDetails.Remove(c);
+                }
+                if (e != null)
+                {
+                    obj.EducationalDetails.Remove(e);
+                }
+                if (t != null)
+                {
+                    obj.TraineeDetails.Remove(t);
+                }
                 obj.SaveChanges();
             }
             return t;

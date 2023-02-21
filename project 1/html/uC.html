@@ -15,16 +15,16 @@
         <label for="name"><b>Company Name<span>*</span></b></label>
       <input type="text" id="cname" placeholder="company Name" required><br>
       <br><label for="name"><b>Project</b></label>
-      <input type="text" id="project" placeholder="project"><br>
+      <input type="text" id="proj" placeholder="project"><br>
       <br><label for="name"><b>Position<span>*</span></b></label>
-      <input type="text"  id="position" placeholder="Enter your position" required><br>
+      <input type="text"  id="pos" placeholder="Enter your position" required><br>
       <br><label for="name"><b>Experience<span>*</span></b></label>
-      <input type="Number"id="Experience" placeholder="Enter your Experience" required><br>
+      <input type="Number"id="Exper" placeholder="Enter your Experience" required><br>
       <br>
       <br>
       <br>
       <button>Clear</button>
-      <button onclick="UCompany()">Submit</button>
+      <button type="submit" onclick="UCompany()">Submit</button>
     </form>
 </fieldset>
 </body>
@@ -37,9 +37,9 @@
 
         let user=document.getElementById("uid").value;
         let CName=document.getElementById("cname").value;
-        let project=document.getElementById("project").value;
-        let position=document.getElementById("position").value;
-        let experience = document.getElementById("Experience").value
+        let project=document.getElementById("proj").value;
+        let position=document.getElementById("pos").value;
+        let experience = document.getElementById("Exper").value
 
         fetch(`https://localhost:7256/api/T/companydetails?id=${user}`,{
             method:"PUT",
@@ -54,8 +54,8 @@
                 "Content-type":"application/json;charset=UTF-8",
             },
         })
-        .then((Response)=>{
-            if(Response.status===200){
+        .then((Response) => {
+            if(Response.status === 200){
                 alert("updated successfully");
                 window.location.href="profile.html";
             }

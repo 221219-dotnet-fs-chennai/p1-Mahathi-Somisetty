@@ -8,7 +8,24 @@
 </head>
 <body>
     <h1>Delete</h1>
-    <button><a href="#" style="text-decoration: none;">Delete account</a></button>
+    <button onclick="deleteacc()">Delete account</button>
+
+    <script>
+        function deleteacc(){
+            const em = localStorage.getItem('Emailid');
+            let url=`https://localhost:7256/api/T/Deletingdetails?email=${em}`;
+            let options={
+                method:"DELETE"
+            }
+            fetch(url,options)
+            .then(data=>{
+                if(data.status===200){
+                    alert("Deleted Successfully");
+                }
+            })
+
+        }
+    </script>
     
 </body>
 </html>

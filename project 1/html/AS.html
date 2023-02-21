@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Skill</title>
 </head>
+
 <body>
     <h2>ADD Skill Details</h2>
     <fieldset>
         <form id="forms">
+            <br><label for="sid"><b>Trainer-Id</b></label>
+            <input type="number" placeholder="Skill name" id="sid"><br>
             <br><label for="sname"><b>SkillName</b></label>
             <input type="text" placeholder="Skill name" id="sname"><br>
             <br><label for="name"><b>SkillType</b></label>
@@ -24,31 +28,34 @@
     </fieldset>
 </body>
 <script>
-    function Askill(){
-        let sn=document.getElementById("sname").value 
-        let st=document.getElementById("stype").value
-        let exp=document.getElementById("expertise").value
+    function Askill() {
+        let sId = document.getElementById("sid").value
+        let sn = document.getElementById("sname").value
+        let st = document.getElementById("stype").value
+        let exp = document.getElementById("expertise").value
 
-    
-    fetch(`https://localhost:7256/api/T/AddSkillDetails`,{
-        method:"POST",
-        body:JSON.stringify({
-            skill_name:sn,
-            skill_Type:st,
-            expertise:exp
-        }),
-        headers:{
-            'Accept':'application/json',
-            "counter-type":"application/json;charset=UTF-8",
 
-        },
-    })
-    .then((Response)=>{
-        if(Response.status===200){
-            alert("Added success")
-            Window.location.href="profile.html"
-        }
-    })
-}
+        fetch(`https://localhost:7256/api/T/AddSkillDetails`, {
+            method: "POST",
+            body: JSON.stringify({
+                "traineeId": sId,
+                "skill_name": sn,
+                "skill_Type": st,
+                "expertise": exp
+            }),
+            headers: {
+                'Accept': 'application/json',
+                "counter-type": "application/json;charset=UTF-8",
+
+            },
+        })
+            .then((Response) => {
+                if (Response.status === 201) {
+                    alert("Added success")
+                    Window.location.href = "profile.html"
+                }
+            })
+    }
 </script>
+
 </html>

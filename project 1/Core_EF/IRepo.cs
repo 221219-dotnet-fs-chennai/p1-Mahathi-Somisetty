@@ -20,7 +20,7 @@ namespace Core_EF
         EducationalDetail AddEducationalDetails(EducationalDetail educationalDetail);
         CompanyDetail AddCompanyDetails(CompanyDetail companyDetail);
 
-        TraineeDetail DeleteAllDetails(int id);
+        TraineeDetail DeleteAllDetails(string email);
         // Trainee update
         TraineeDetail updatebyid(TraineeDetail details);
         //skill update

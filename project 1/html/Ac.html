@@ -18,23 +18,45 @@
       <br><label for="name"><b>Position<span>*</span></b></label>
       <input type="text"  id="position" placeholder="Enter your position" required><br>
       <br><label for="name"><b>Experience<span>*</span></b></label>
-      <input type="Number"id="Experience" placeholder="Enter your Experience" required><br>
+      <input type="text"id="Experience" placeholder="Enter your Experience" required><br>
       <br>
       <br>
       <br>
       <button>Clear</button>
-      <button>Submit</button>
+      <button onclick="Add()">Submit</button>
     </form>
 </fieldset>
 </body>
 <script>
     function Add(){
-        let CNname=document.getElementById("cname").value;
+
+        let CName=document.getElementById("cname").value;
         let project=document.getElementById("project").value;
         let Pos=document.getElementById("position").value;
         let exp=document.getElementById("Experience").value;
 
-        fetch(``)
+        fetch(`https://localhost:7256/api/T/AddCompanydetails`,{
+        method:"POST",
+        body:JSON.stringify({
+            company_name: CNname,
+            project_Name: project,
+            position: Pos,
+            experience: exp
+        }),
+        headers:{
+            'Accept':'application/json',
+            "content-type":"application/json;charset=UTF-8",
+        },
+      }) 
+      .then((Response=>{
+        if(Response.status===201){
+            alert("Added Success");
+            Window.location.href="Profile.html";
+        }
+        else{
+            alert("retry");
+        }
+      })).catch(error=>console.log(error));
     }
 </script>
 </html>

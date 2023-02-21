@@ -14,6 +14,7 @@ function login() {
         }).then(response => {
                 if (response.status === 200) {
                     alert('Login Success');
+                    localStorage.setItem('Emailid',email);
                     window.location.href='view.html';
                 }
                 else {

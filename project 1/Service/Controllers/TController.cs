@@ -213,13 +213,13 @@ namespace Service.Controllers
             }
         }
         [HttpDelete("Deletingdetails")]
-        public IActionResult Del(int id) 
+        public IActionResult Del(string email) 
         {
             try
             {
-                if (id!=null)
+                if (email!=null)
                 {
-                    var r=logic.DeleteAllDetails(id);
+                    var r=logic.DeleteAllDetails(email);
                     return Ok(r);
                 }
                 else
