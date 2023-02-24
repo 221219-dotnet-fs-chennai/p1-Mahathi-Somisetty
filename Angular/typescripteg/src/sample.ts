@@ -1,1 +1,0 @@
-let name1:string

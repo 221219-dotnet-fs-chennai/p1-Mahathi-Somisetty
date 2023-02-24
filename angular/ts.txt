@@ -1,0 +1,36 @@
+import { Component } from '@angular/core';
+import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownConfig, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgIf } from '@angular/common';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterLink } from '@angular/router';
+import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbRatingConfig, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  
+  
+})
+export class AppComponent {
+  title = 'second';
+  active = 1;
+  status=true;
+  color='Red';
+  images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
+
+	constructor(config: NgbCarouselConfig) {
+		// customize default values of carousels used by this component tree
+		config.interval = 10000;
+		config.wrap = false;
+		config.keyboard = false;
+		config.pauseOnHover = false;
+   
+   
+	}
+  }
+
