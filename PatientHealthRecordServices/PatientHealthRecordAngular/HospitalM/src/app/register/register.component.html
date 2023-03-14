@@ -1,0 +1,62 @@
+  <p class="nav">
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>local_hospital</mat-icon>
+      </button>
+      <span>Hospital Management System</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with app-registration icon">
+        <mat-icon>app_registration</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with login icon">
+        <mat-icon>login</mat-icon>
+      </button>
+    </mat-toolbar>
+  </p>
+  <br>
+  
+  <mat-card>
+  <section>
+  <h2>Registration</h2>
+    <mat-form-field class="example-full-width" >
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="Ex. Mickel" required aria-required="true"  >
+    </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Ex. Raj" required>
+        </mat-form-field>
+  <br><br>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Ex. mike@gmail.com" required >
+    </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Phone Number</mat-label>
+    <input matInput placeholder="Ex. 8213467290" required >
+  </mat-form-field>
+  <br>
+  <mat-radio-group aria-label="Select an option">
+    <mat-radio-button value="1">Male</mat-radio-button>
+    <mat-radio-button value="2">Female</mat-radio-button>
+    <mat-radio-button value="2">others</mat-radio-button>
+  </mat-radio-group>
+  <br>
+  <mat-form-field class="example-full-width" >
+    <mat-label>Password</mat-label>
+    <input matInput placeholder="Ex. Mike@123" required >
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Re-enter to confirm</mat-label>
+    <input matInput placeholder="Ex. Mike@123" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="area">
+    <mat-label>Address</mat-label>
+    <textarea matInput placeholder="Ex. Address of your own house"></textarea>
+  </mat-form-field>
+  <br>
+ <button mat-raised-button color="primary">Submit</button><p>Registered user?<a routerLink="/login">Login</a> </p>
+</section>
+</mat-card>

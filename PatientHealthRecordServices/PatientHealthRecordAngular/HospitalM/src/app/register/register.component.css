@@ -1,0 +1,19 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  section{
+    border-style:none ;
+    margin-left: 450px;
+    margin-right: 50px;
+  }
+  .mat-toolbar.mat-primary {
+    background: green;
+    color: #fff;
+}
+.mat-mdc-raised-button.mat-primary {
+    --mdc-protected-button-container-color: green;
+    --mdc-protected-button-label-text-color: #fff;
+}
+.area{
+  width: 425px;
+}

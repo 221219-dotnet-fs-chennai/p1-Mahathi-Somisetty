@@ -1,0 +1,34 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .mat-toolbar.mat-primary {
+    background: green;
+    color: #fff;
+}
+.mat-mdc-raised-button.mat-primary {
+    --mdc-protected-button-container-color: green;
+    --mdc-protected-button-label-text-color: #fff;
+}
+mat-card{
+ margin-right:400px;
+ margin-left: 400px;
+ 
+}
+.mat-mdc-form-field-infix {
+    flex: auto;
+    min-width: 0;
+    width: 180px;
+    position: relative;
+    box-sizing: border-box;
+}
+.mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix {
+    padding-top: 24px;
+    padding-bottom: 8px;
+}
+
+
+.example-full-width
+{
+    padding:3%
+}

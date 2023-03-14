@@ -1,0 +1,15 @@
+.mat-toolbar.mat-primary {
+    background: green;
+    color: #fff;
+}
+mat-card{
+    margin-right:400px;
+    margin-left: 400px;
+    padding: 20px;
+   }
+  
+   .mat-mdc-raised-button.mat-primary {
+    --mdc-protected-button-container-color: green;
+    --mdc-protected-button-label-text-color: #fff;
+}
+

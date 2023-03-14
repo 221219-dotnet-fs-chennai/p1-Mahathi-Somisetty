@@ -1,0 +1,37 @@
+<p class="nav">
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>local_hospital</mat-icon>
+      </button>
+      <span>Hospital Management System</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with app-registration icon">
+        <mat-icon>app_registration</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with login icon">
+        <mat-icon>login</mat-icon>
+      </button>
+    </mat-toolbar>
+  </p>
+  <br>
+  <mat-card>
+    <mat-card-content><h1>Login</h1></mat-card-content>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Ex. mike@gmail.com" required >
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Ex. Mike@123" required >
+      </mat-form-field>
+       <div class="example-full-width">
+    
+      <button mat-raised-button color="primary" class="example-full-width" >Submit</button><p>New user? Register here<a routerLink="/register">register</a> </p>
+      </div>
+  </mat-card>
+  <a routerLink="/patientbasicrecord">patient basic record</a> 
+
+
+  <router-outlet></router-outlet>

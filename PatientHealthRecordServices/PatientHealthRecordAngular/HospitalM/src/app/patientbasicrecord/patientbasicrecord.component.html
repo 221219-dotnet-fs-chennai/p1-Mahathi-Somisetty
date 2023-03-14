@@ -1,0 +1,30 @@
+<p class="nav">
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>local_hospital</mat-icon>
+      </button>
+      <span>Hospital Management System</span>
+    </mat-toolbar>
+  </p>
+  <mat-card>
+    <mat-card-content><h1>Patient Basic Record</h1></mat-card-content>
+    <br>
+    <br>
+      <mat-form-field class="example-full-width" >
+        <mat-label>BP</mat-label>
+        <input matInput placeholder="Ex. Mickel" required aria-required="true"  >
+      </mat-form-field>
+      <mat-form-field class="example-full-width" >
+        <mat-label>Heart Rate</mat-label>
+        <input matInput placeholder="Ex. Mickel" required aria-required="true"  >
+      </mat-form-field>
+      <mat-form-field class="example-full-width" >
+        <mat-label>Spo2</mat-label>
+        <input matInput placeholder="Ex. Mickel" required aria-required="true"  >
+      </mat-form-field>
+      <button mat-raised-button color="primary">Submit</button>
+      <p>Add Medication of patient<a routerLink="/patient-medication">here</a></p>
+  </mat-card>
+  <p>{{now | date : 'short'}}</p>
+  
+  
